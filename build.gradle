@@ -94,6 +94,7 @@ tasks.matching { it.name == 'runRegression' || it.name == 'runVisual' }.configur
             }
             if (name == 'runRegression' && !log.getText('UTF-8').contains('LONYA STORY CHECKS PASSED')) throw new GradleException('Lonya story regression did not finish')
             if (name == 'runRegression' && !log.getText('UTF-8').contains('LONYA COOLDOWN CHECKS PASSED')) throw new GradleException('Lonya cooldown regression did not finish')
+            if (name == 'runRegression' && !log.getText('UTF-8').contains('LONYA AFFECTION CHECKS PASSED')) throw new GradleException('Lonya affection regression did not finish')
         }
     }
 }

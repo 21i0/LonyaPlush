@@ -30,7 +30,7 @@ public final class LonyaCooldownChecks {
     }
     private static void verify(ServerLevel level) throws Exception {
         var owner=player(level,"LonyaCooldownOwner");owner.setPos(5,101,1);owner.getInventory().clearContent();
-        var data=LonyaProgress.get(level.getServer());var progress=data.forPlayer(owner.getUUID());
+        var data=LonyaProgress.get(level.getServer());var progress=data.forPlayer(owner.getUUID());progress.affection=100;
         var marker=level.getServer().getWorldPath(LevelResource.ROOT).resolve("lonya-cooldown-restart.txt");
         if(java.nio.file.Files.exists(marker)) {
             long persisted=Long.parseLong(java.nio.file.Files.readString(marker).trim());
@@ -51,7 +51,7 @@ public final class LonyaCooldownChecks {
         int count=LonyaScript.chapter(0).lines().size();
         for(int i=0;i<count-1;i++)command(owner,doll,session,LonyaStoryService.NEXT,0);
         check(progress.chapter==0&&progress.line==count-1&&progress.lastChapterCompletedAtMillis==0,"all dialogue advances without a within-chapter wait");
-        var finalPacket=packet(doll,session,LonyaStoryService.NEXT,0);LonyaStoryService.handle(owner,finalPacket);
+        var finalPacket=packet(doll,session,LonyaStoryService.CHOICE,0);LonyaStoryService.handle(owner,finalPacket);
         long completedAt=wall.get();check(progress.chapter==1&&progress.line==0&&session.mode==0,"completion enters hub and unlocks next chapter");
         check(progress.lastChapterCompletedAtMillis==completedAt&&LonyaStoryConfig.remainingMillis(progress,wall.get())==1_200_000,"chapter completion starts default twenty minutes");
         LonyaStoryService.handle(owner,finalPacket);check(progress.lastChapterCompletedAtMillis==completedAt,"duplicate completion cannot extend cooldown");
@@ -62,6 +62,7 @@ public final class LonyaCooldownChecks {
         LonyaStoryService.close(owner);doll.discard();doll=doll(level,owner);session=LonyaStoryService.open(owner,doll,nano::get,wall::get);
         command(owner,doll,session,LonyaStoryService.CONTINUE,0);check(session.mode==0,"reopening UI with another doll cannot bypass player's cooldown");
         var peer=player(level,"LonyaCooldownPeer");peer.setPos(5,101,1);
+        data.forPlayer(peer.getUUID()).affection=100;
         var peerDoll=doll(level,peer);var peerSession=LonyaStoryService.open(peer,peerDoll,nano::get,wall::get);
         command(peer,peerDoll,peerSession,LonyaStoryService.CONTINUE,0);check(peerSession.mode==1,"cooldown isolated by player UUID");
         LonyaStoryService.close(peer);peerDoll.discard();
@@ -85,7 +86,7 @@ public final class LonyaCooldownChecks {
         wall.set(completedAt+1_200_000);command(owner,doll,session,LonyaStoryService.CONTINUE,0);check(session.mode==1,"default duration expires at twenty minutes");
         // Keep an active, real-time cooldown in world data for the next independent server process.
         wall.set(System.currentTimeMillis());progress.lastChapterCompletedAtMillis=wall.get()-1_200_000;
-        for(int i=0;i<count;i++)command(owner,doll,session,LonyaStoryService.NEXT,0);
+        for(int i=0;i<count;i++)command(owner,doll,session,i==count-1?LonyaStoryService.CHOICE:LonyaStoryService.NEXT,0);
         check(progress.chapter==1&&progress.lastChapterCompletedAtMillis==wall.get(),"new completion creates a new cooldown");
         java.nio.file.Files.writeString(marker,Long.toString(wall.get()));data.setDirty();
         command(owner,doll,session,LonyaStoryService.RECLAIM,0);check(doll.isRemoved(),"reclaim remains available during cooldown");

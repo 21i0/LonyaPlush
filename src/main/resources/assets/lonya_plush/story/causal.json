@@ -1,0 +1,50 @@
+[
+  {
+    "text": "“回来啦。今天也辛苦了，先坐一会儿吧。”",
+    "expression": "hello",
+    "min_affection": 0
+  },
+  {
+    "text": "“今天有没有碰到什么有趣的事？我想听你说。”",
+    "expression": "idea",
+    "min_affection": 0
+  },
+  {
+    "text": "“不用急着找话题，陪我待一会儿就很好。”",
+    "expression": "calm",
+    "min_affection": 0
+  },
+  {
+    "text": "“刚才在想你会不会来，结果真的等到了……别笑，我就随便想想。”",
+    "expression": "shy",
+    "min_affection": 30,
+    "max_affection": 80
+  },
+  {
+    "text": "“你这回过来得好快，我刚给你留好位置。”",
+    "expression": "surprised",
+    "min_affection": 20,
+    "max_affection": 60
+  },
+  {
+    "text": "“这个地方我想了半天，下次来陪我一起试试？你在旁边，我比较敢乱来。”",
+    "expression": "puzzled",
+    "min_affection": 40,
+    "max_affection": 100
+  },
+  {
+    "text": "“怎么才来呀？给你留的位置都快被我坐热了。……好吧，来了就坐。”",
+    "expression": "angry",
+    "min_affection": 60
+  },
+  {
+    "text": "“刚才说得太起劲，又让你听我念叨半天。下次也记得讲讲你的事，好不好？”",
+    "expression": "sorry",
+    "min_affection": 80
+  },
+  {
+    "text": "“你来啦。我今天攒了好多想跟你说的事，先从哪一件讲起呢？”",
+    "expression": "hello",
+    "min_affection": 100
+  }
+]

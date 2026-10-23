@@ -1,5 +1,5 @@
-"""Authored two-person edition. Rebuild chapters.json without changing persistent line indices.
-minimum_ms is suggested autoplay timing; manual advance and fast forward never wait for it.
+"""Authored two-person edition. Rebuild chapter2.json through chapter5.json, preserving JSON-authored choices.
+Autoplay timing is computed in Java. Back up the chapter JSON files before restoring the prose below.
 Run with Python 3: py tools/rewrite_story.py
 """
 from pathlib import Path
@@ -333,33 +333,34 @@ r"""
 ]
 EXPECTED = [61, 60, 59, 59, 64]
 
+
 def build():
+    story_dir = Path(__file__).resolve().parents[1] / "src/main/resources/assets/lonya_plush/story"
+    # Each chapter JSON owns options, branches and extra common dialogue. Preserve those authored fields.
+    existing = []
+    for index in range(2, len(CHAPTERS) + 1):
+        target = story_dir / f"chapter{index}.json"
+        existing.append(json.loads(target.read_text(encoding="utf-8")) if target.exists() else {})
     result = []
-    for index, (title, summary, script) in enumerate(CHAPTERS):
+    for index, (title, summary, script) in enumerate(CHAPTERS[1:], start=1):
+        previous = existing[index - 1] if index - 1 < len(existing) else {}
+        old_lines = previous.get("lines", [])
         lines = []
         for raw in script.strip().splitlines():
             cursor, speaker, text = raw.split("|", 2)
             assert int(cursor) == len(lines), (title, cursor, len(lines))
             assert speaker in {"Lonya", "你", "旁白"}
-            assert not re.search(r"阿澄|三个人|第三个|你和阿|你们负责|我们都坐车", text), text
-            expression = "calm"
-            if speaker == "Lonya":
-                expression = "sorry" if index == 3 and int(cursor) >= 54 else "hello" if int(cursor) % 3 == 0 else "calm"
-            lines.append(dict(speaker=speaker, expression=expression, text=text))
+            node = dict(old_lines[len(lines)]) if len(lines) < len(old_lines) else {}
+            node.update(id=node.get("id", f"ch{index + 1}_line_{cursor.lstrip('0') or '0'}"), speaker=speaker, text=text)
+            node.pop("expression", None)
+            node.pop("minimum_ms", None)
+            lines.append(node)
         assert len(lines) == EXPECTED[index], (title, len(lines))
-        weights = [max(20, len(line["text"])) for line in lines]
-        duration = [300000 * weight // sum(weights) for weight in weights]
-        for i in range(300000 - sum(duration)):
-            duration[i % len(duration)] += 1
-        for line, ms in zip(lines, duration):
-            line["minimum_ms"] = ms
-        result.append(dict(title=title, summary=summary, lines=lines))
-    target = Path(__file__).resolve().parents[1] / "src/main/resources/assets/lonya_plush/story/chapters.json"
-    target.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    for ch in result:
-        print(ch["title"], "lines", len(ch["lines"]), "characters", sum(len(l["text"]) for l in ch["lines"]),
-              "longest", max(len(l["text"]) for l in ch["lines"]))
-    print("Two-person edition written:", target)
+        lines.extend(old_lines[EXPECTED[index]:])
+        target = story_dir / f"chapter{index + 1}.json"
+        target.write_text(json.dumps(dict(title=previous.get("title", title), summary=previous.get("summary", summary), lines=lines), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print("Original main dialogue restored; JSON choices and extra lines preserved in chapter files:", story_dir)
+
 
 if __name__ == "__main__":
     build()

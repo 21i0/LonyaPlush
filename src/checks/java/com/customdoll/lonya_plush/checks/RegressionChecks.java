@@ -74,6 +74,7 @@ public final class RegressionChecks {
    check(net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.keySet().stream().filter(k->k.getNamespace().equals(DollMod.MODID)).count()==1,"exact entity registry count");
    LonyaStoryChecks.run(l);
    LonyaCooldownChecks.run(l);
+   LonyaAffectionChecks.run(l);
    LogUtils.getLogger().info("DOLL SERVER CHECKS PASSED");
   }catch(Throwable t){LogUtils.getLogger().error("DOLL SERVER CHECKS FAILED",t);}
   finally{e.getServer().halt(false);}

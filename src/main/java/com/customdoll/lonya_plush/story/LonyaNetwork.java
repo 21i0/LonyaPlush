@@ -25,7 +25,7 @@ public final class LonyaNetwork {
     /** Filled by the client setup event, never resolves a client class on dedicated servers. */
     public static java.util.function.Consumer<String> CLIENT = json -> { };
     public static void register(RegisterPayloadHandlersEvent event) {
-        var registrar = event.registrar("lonya-story-1");
+        var registrar = event.registrar("lonya-story-3");
         registrar.playToServer(Request.TYPE, Request.CODEC, (packet, context) ->
                 context.enqueueWork(() -> LonyaStoryService.handle((ServerPlayer)context.player(), packet)));
         registrar.playToClient(Snapshot.TYPE, Snapshot.CODEC, (packet, context) ->
