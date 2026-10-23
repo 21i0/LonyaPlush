@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "com.customdoll.lonya_plush.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "DollHeldMixin",
+    "DollPlayerArmMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

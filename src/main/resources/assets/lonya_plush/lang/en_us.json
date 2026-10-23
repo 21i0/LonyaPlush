@@ -1,0 +1,10 @@
+{
+  "block.lonya_plush.lonya_plush_display": "lonya plush",
+  "item.lonya_plush.lonya_plush_doll": "lonya plush",
+  "entity.lonya_plush.lonya_plush_doll": "lonya plush",
+  "tooltip.lonya_plush.lonya_plush_doll": "A little companion in your palm.",
+  "tooltip.lonya_plush.controls": "Place on blocks; click display to spin; sneak-click display to retrieve. Helmet/Curios compatible. Sneak-use in air to deploy; click companion to pat; Shift+right-click companion for retrieve/chat.",
+  "message.lonya_plush.full": "Make room in your inventory first.",
+  "message.lonya_plush.owner": "This doll belongs to another player.",
+  "subtitles.lonya_plush.lonya_plush_pat": "Doll chirps softly"
+}

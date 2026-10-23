@@ -1,0 +1,16 @@
+.gradle/
+build/
+run/
+*.log
+out/
+.idea/
+.vscode/
+*.iml
+local.properties
+gradle-local.properties
+.env
+.env.*
+*.key
+*.pem
+__pycache__/
+*.py[cod]

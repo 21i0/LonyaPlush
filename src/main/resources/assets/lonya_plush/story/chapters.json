@@ -1,0 +1,1850 @@
+[
+  {
+    "title": "第1章 · 给我留一遍的时间",
+    "summary": "你独自来找 Lonya 玩，发现窗边多了把吉他，便起哄让她弹一段。弹错的地方一起听，接不上的地方慢慢试，等回过神，两个人已经聊到了晚饭。",
+    "lines": [
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "门铃响起时，屋里先传来椅脚挪动的声音。Lonya 开门后朝你笑了一下，又回头看了眼桌面，像在确认临时清出的空位还在。",
+        "minimum_ms": 7501
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "来了？进来进来。刚收拾完，正好给你留个坐的地方。那几根线先别管，我本来想找一根，结果越翻越多。",
+        "minimum_ms": 6078
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "看出来了，收拾得挺有过程的。地板都快没地方下脚了。",
+        "minimum_ms": 3233
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "少夸两句，我知道。拖鞋在右边，新的给你，我这双刚才踩到水了。饮料给我，别一进门就抱着东西站岗。",
+        "minimum_ms": 6078
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你换好鞋，把带来的饮料放到桌边。窗帘没有拉严，一道光落在吉他琴弦上；你停住脚，视线顺着琴颈往下移。",
+        "minimum_ms": 6337
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "你还买吉他了？什么时候的事，上回还没有呢。",
+        "minimum_ms": 2716
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "有阵子了。哎，你先别笑，我真在练。最近有一段特别想弹出来，就是手还没完全跟上。",
+        "minimum_ms": 5044
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "那来一个啊，都到你家了，总得让我听听。",
+        "minimum_ms": 2587
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你把椅子转向窗边，装模作样地挺直背。Lonya 看了看你，又看了看吉他，嘴角往上翘，手却还揣在衣兜里。",
+        "minimum_ms": 6595
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "来就来。等我把线接一下。先说啊，现在只有一小段，别听到一半问后面呢，后面我还没学会。",
+        "minimum_ms": 5432
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "行，就听这段。我不挑，你别弹两下就说今天到这儿就行。",
+        "minimum_ms": 3363
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "好嘞。手机先收一下，我还不想明天打开聊天，就看见自己卡在那儿循环播放。",
+        "minimum_ms": 4526
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你把手机调成静音，放进口袋，再摊开手给她看。Lonya 这才从支架上拿起吉他，仔细绕开脚边的线。",
+        "minimum_ms": 6207
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "收了收了。你放心弹，我今天就带了两只耳朵来。",
+        "minimum_ms": 2845
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "这句我记住了。弹错了可以笑，别笑完假装没听见，我会怀疑你在憋更大的。",
+        "minimum_ms": 4397
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "她说完低头拨了两下弦，先调音，再把音箱拧小。刚才还不停接话的人忽然认真起来，连尾巴都规矩地贴在椅侧。",
+        "minimum_ms": 6466
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "这个音量会不会太小？",
+        "minimum_ms": 2587
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "不小，坐近一点就听清了。你往右挪挪，对，就是那儿。我最近都在这儿练，听着比较习惯。",
+        "minimum_ms": 5302
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你照着挪了挪椅子。Lonya 用脚尖点了几下拍子，抬眼确认你在听，才让第一串音慢慢落进安静的客厅。",
+        "minimum_ms": 6337
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "前面很顺，到了一个换位的地方，声音突然断开。Lonya 没有接着糊过去，而是按住弦，轻轻呼了口气。",
+        "minimum_ms": 6337
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "哎，又这儿。前面明明过去了，到这一下就急。等会儿，我不信今天还过不去。",
+        "minimum_ms": 4526
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "刚才左手还没过去，右手就先弹了？",
+        "minimum_ms": 2587
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "对，抢跑了。你看得还挺准，我自己在这儿反复弹，弹到后面都快分不清哪下先动了。",
+        "minimum_ms": 4914
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "你刚才前面挺稳的，就是换这儿突然赶。要不先把这一小截放慢点？",
+        "minimum_ms": 3880
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "Lonya 低头看着指尖，把刚才的两个位置慢慢换了一次。没有接音箱的声音，只剩指腹擦过弦的一点轻响。",
+        "minimum_ms": 6466
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "等一下，我想到怎么试了。前面这两个位置单独拎出来，先不管后面。我换一下指法，你帮我听听。",
+        "minimum_ms": 5690
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "行，我坐这儿。今天又不赶时间，你折腾你的。",
+        "minimum_ms": 2716
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "这一遍慢得能听清每个音之间的空隙。你没有替她数拍，只看见她在要停住的地方放轻了肩膀，再把后面的声音接上。",
+        "minimum_ms": 6724
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "哎，接上了！你听见没？先别说，让我马上再试一下，刚才那个位置好像真的顺一点。",
+        "minimum_ms": 4913
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "听见了。你看，刚才非要跟自己较那个劲。",
+        "minimum_ms": 2586
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "我哪知道一下就行。早知道刚才先这么试了，白在那儿卡半天。再来再来，这遍肯定比前面像样。",
+        "minimum_ms": 5560
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你忍不住笑，Lonya 也笑了。指尖还搭在琴弦上，刚才那股紧绷却松开了，耳朵随着你的笑声轻轻动了一下。",
+        "minimum_ms": 6594
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "这次转过去以后舒服多了。刚才我还替你等着呢，这回一下就顺下来了。",
+        "minimum_ms": 4137
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "对，就是这个感觉！我喜欢这段就是因为它接得特别好听，练到自己手里，总不能每回到这儿就断。",
+        "minimum_ms": 5689
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "那你练了多久？",
+        "minimum_ms": 2586
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "有空就摸一会儿。说是十分钟，真摸起来就不止了。昨天还想着再弹一遍就停，结果一抬头，水都凉透了。",
+        "minimum_ms": 6077
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "琴架旁压着一页练习记录。你没有伸手翻，只看见最上面画了几个小框，有的打勾，有的留着，最后一行另添了日期。",
+        "minimum_ms": 6724
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "你还专门记这些？",
+        "minimum_ms": 2586
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "不然会忘啊。今天觉得哪儿都不行，翻一下，前几天卡的地方其实已经过去了。还有几条乱写的，你别细看。",
+        "minimum_ms": 6206
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "今天这儿也能添一个勾了。",
+        "minimum_ms": 2586
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "等我再来一遍。刚成功就打勾，等会儿又错，那多丢人。你坐好，我试试这回能不能整段过去。",
+        "minimum_ms": 5431
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "她又从前面开始。这次没有在换位前急促吸气，音和音之间还留着一点生涩，却没有被她自己打断。",
+        "minimum_ms": 5689
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "这遍听到后面，我都忘了等那个卡住的地方。",
+        "minimum_ms": 2586
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "我刚才也差点忘了盯那一下。前面慢一点，后面反而没那么赶。诶，你刚才那个办法还挺管用的。",
+        "minimum_ms": 5560
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "Lonya 把琴抱在腿上，低头拨了一个很轻的和弦，像在回味。你没有催她再演，拿起饮料问要不要递过去。",
+        "minimum_ms": 6465
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "要，给我放桌上就行。我先把琴放好，刚才差点拿着它去够杯子，回头弄湿了我还得心疼半天。",
+        "minimum_ms": 5431
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "你刚才明明挺想弹的，还跟我拉扯半天。",
+        "minimum_ms": 2586
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "我就是有点想给你听，又怕弹两下卡住，还得你在那儿等。现在试过去了就舒服了，早知道先叫你过来。",
+        "minimum_ms": 5948
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "那下回直接叫我。反正我来这儿也是坐着，听你弹总比咱俩各刷各的手机强。",
+        "minimum_ms": 4396
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "她接过饮料，没有立刻接玩笑。杯壁的凉意贴住掌心，Lonya 看着你坐过的那张椅子，缓缓点了一下头。",
+        "minimum_ms": 6336
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "行啊。等我再把后面接上。刚才都弹到这儿了，我现在特别想知道，整段连起来到底什么感觉。",
+        "minimum_ms": 5431
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "那你可别现在一头扎进去，把我晾这儿看天。",
+        "minimum_ms": 2586
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "不会不会，先陪你。今天再开一个新地方，估计又停不下来，留明天。你下回来的时候我再给你听。",
+        "minimum_ms": 5689
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你说没有，她又故意看了一眼你的口袋。两个人笑完，Lonya 才把吉他放回架子，挪好位置，免得经过时碰到。",
+        "minimum_ms": 6724
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "今天这段叫什么？我总不能下次只说，那个中间曾经卡住的。",
+        "minimum_ms": 3491
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "回头发你。你先听原来的，再听我弹，别一对比就不认我这份了啊，刚才那个坎我好不容易才过去。",
+        "minimum_ms": 5689
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "窗边的光挪到了地板上。Lonya 看了眼时间，原本随意摇着的尾尖停住，接着又看向你手里只剩一半的饮料。",
+        "minimum_ms": 6594
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "哎，都这个点了。你饿不饿？本来想给你切点水果，光顾着弹，把正事都忘了。",
+        "minimum_ms": 4525
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "有点。你厨房还有什么能吃的？我也没打算这么早走。",
+        "minimum_ms": 3103
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "那正好，留下吃。你把椅子往边上挪一下，我拿东西。你帮我洗点菜，咱俩应该挺快的。",
+        "minimum_ms": 5043
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你起身给她让路，听见厨房灯被按亮。下午那段还不太熟的旋律没有被录下来，却跟着你们一起，留进了接下来的晚饭里。",
+        "minimum_ms": 6982
+      }
+    ]
+  },
+  {
+    "title": "第2章 · 这一顿一起慢慢来",
+    "summary": "Lonya 留你吃晚饭，你洗菜，她看火。锅里的味道边尝边改，互相吐槽几句，桌子也慢慢摆好；饭后谁洗谁擦，不用再来回客气。",
+    "lines": [
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "Lonya 打开冰箱，把几样食材摆到台面上。你跟到厨房门口，看见她低头核对了一遍，又抬眼问你有没有不吃的东西。",
+        "minimum_ms": 7058
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "番茄炖鸡，煎点蘑菇，再来个青菜，行不行？本来只想简单弄一下，看见这些又有点想做，量也够咱俩吃。",
+        "minimum_ms": 6031
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "行啊。有我能干的吗？先说，别一上来让我负责最贵的那块。",
+        "minimum_ms": 3465
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "没那么夸张，洗个番茄就行。袖子挽起来，水开小点。你要把自己洗湿了，我还得翻衣服给你。",
+        "minimum_ms": 5390
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你挽起袖子，接过三个番茄。Lonya 把生鸡肉的砧板留在另一边，顺手指了指空出来的沥水篮。",
+        "minimum_ms": 5775
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "洗好放这里，对吧？",
+        "minimum_ms": 2567
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "对，放那儿。这块板刚弄过生肉，别往上放。你那边我给你空出来了，洗完放好，我来切。",
+        "minimum_ms": 5133
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你把洗好的番茄放进篮子。Lonya 擦干手，打开抽油烟机，又把靠近灶台的包装袋收远，动作比刚才在客厅利落许多。",
+        "minimum_ms": 7058
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "你进厨房倒挺利索，刚才找线可不是这个速度。",
+        "minimum_ms": 2695
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "那线会打结，番茄又不会。我也得挑点自己有把握的给你看，不能一下午光让你看我在这儿找东西。",
+        "minimum_ms": 5646
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "那我少问几句，等你这一下忙完。",
+        "minimum_ms": 2567
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "鸡肉落进锅里，声音一下盖过了聊天。Lonya 低头看着锅沿，拿起铲子又放下，没有急着去翻。",
+        "minimum_ms": 5775
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "没事，现在能说。这面先煎一会儿，别老动它就行。刚开始我也爱翻，怕糊，结果越翻越不像样。",
+        "minimum_ms": 5518
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "你这意思，咱俩现在站这儿看着就算干活了？",
+        "minimum_ms": 2567
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "算，盯着也是活儿。番茄给我，慢点递。你先往后一点，等会儿下锅可能溅，别凑这么近。",
+        "minimum_ms": 5133
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "番茄下锅后冒出一阵热气。你往后让了一步，Lonya 也侧开脸，等水汽散去，才伸手调小火。",
+        "minimum_ms": 5646
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "火这样就够了吗？刚才不是还挺大的？",
+        "minimum_ms": 2567
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "前面煎一下，后面炖，火不能一直那么大。不然外面糊了里面还没好，我可不想让你吃完回去骂我。",
+        "minimum_ms": 5646
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "她说着盖上锅，调好计时，才回头接过你递来的杯子。你发现她额前有一小撮头发翘起来，正随着动作一晃一晃。",
+        "minimum_ms": 6416
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "你先喝水。那个翘起来的头发，要不要顺手压一下？",
+        "minimum_ms": 2952
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "哪儿？你指一下。……这个算了，先喝水，锅还开着呢。等会儿全弄完了，你再慢慢笑。",
+        "minimum_ms": 5005
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你指了指，她用手背轻轻压了一下。结果只压住一半，你没忍住笑出来，她看着你的表情，也跟着笑了。",
+        "minimum_ms": 5903
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "不管它了，吃饭又不看头发。帮我拿两只碗出去呗，上面那层，旁边筷子也一起拿。",
+        "minimum_ms": 4748
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "收到。两只碗两双筷子，我这业务还是挺熟练的。",
+        "minimum_ms": 2823
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "稳，我都没交代筷子几双你就会了。等我把这个弄完，蘑菇一煎就能吃，应该不用你饿着表演太久。",
+        "minimum_ms": 5646
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你把碗和筷子放好，又回来问杯子用哪只。Lonya 指向架子中间，提醒你拿常用的，那两只边缘没有小缺口。",
+        "minimum_ms": 6545
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "有缺口的还留着干什么？",
+        "minimum_ms": 2567
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "装点小零件。有时候顺手往里一丢，找起来还方便。我回头挪开，放厨房这儿，你肯定又以为是喝水的。",
+        "minimum_ms": 5902
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你选了两只完好的杯子，洗净放好。锅里开始冒出番茄的香味，Lonya 抬起盖子，看了一会儿，又让它继续小火炖着。",
+        "minimum_ms": 7057
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "闻起来已经很像一顿正式的晚饭了。",
+        "minimum_ms": 2566
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "那就好。我刚才还担心，临时说留你吃饭，结果弄半天还没上桌。真饿了先垫点，旁边有面包。",
+        "minimum_ms": 5389
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "还能等。你别一个人瞎忙，我这儿反正闲着，有东西递一下就行。",
+        "minimum_ms": 3721
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "Lonya 拿蘑菇的动作停了一下。你站在旁边把沥水篮挪开，给她腾出位置，没有把刚才那句话说得很郑重。",
+        "minimum_ms": 6415
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "好，那你帮我把蘑菇那盒打开。这个包装我刚才拆一半又放回去了，专挑我手上有水的时候跟我较劲。",
+        "minimum_ms": 5774
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "你这个角都没掀对，难怪刚才半天没打开。",
+        "minimum_ms": 2566
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "哎，还真是。你早说啊，我刚差点上剪刀了。给我吧，待会儿热盘子我端，你拿边上那盘就行。",
+        "minimum_ms": 5389
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "她用干净小勺尝了一点汤汁，皱着眉想了想，添了一点水。你看着她重新搅匀，又尝了一次，这回才点头。",
+        "minimum_ms": 6030
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "刚才是太咸了？",
+        "minimum_ms": 2566
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "有点，收汁比我想得快。还好发现了，加点水调一下。你等会儿帮我尝尝，别给面子，该说说。",
+        "minimum_ms": 5389
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "我可以帮你一起尝。不过等它不烫了再说，我不打算靠勇气判断味道。",
+        "minimum_ms": 3977
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "Lonya 换了一只干净的小勺给你，等你吹凉。你认真尝过，说现在番茄的味道更明显，她低头又看了眼锅里的汤汁。",
+        "minimum_ms": 6928
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "对，我就想要这个味儿。等会儿拌饭好吃。蘑菇再煎一小会儿，我想把边上弄香一点，不着急出。",
+        "minimum_ms": 5517
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "最后一道菜出锅时，你已经把桌面擦好。Lonya 端着热盘出来，看见筷子摆在顺手的位置，脚步轻轻停了一下。",
+        "minimum_ms": 6672
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "怎么了？筷子摆反了吗？",
+        "minimum_ms": 2566
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "没有，挺好。你连水都倒了？那我这回真能直接坐下了，刚才还想端出来再回去拿。",
+        "minimum_ms": 4747
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你们坐到桌边，没有再等谁宣布开饭。第一口蘑菇还很热，你慢慢咽下去，Lonya 一边盛饭，一边留意你的表情。",
+        "minimum_ms": 6800
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "边上有点香，里面还是软的。这个我喜欢，刚才多等那一下确实有区别。",
+        "minimum_ms": 4106
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "我也觉得等一下值。刚才差点为了两道菜一起出来，提前盛了。后面想，先把好吃的做出来，你又不会掐表。",
+        "minimum_ms": 6159
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "你自己也吃。锅放得这么近，不用一直给我夹，我手够得到。",
+        "minimum_ms": 3464
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "她手里的筷子转了个方向，终于给自己夹了一块。窗外暗下去，餐桌上只有两只碗，食物的热气慢慢往灯下浮。",
+        "minimum_ms": 6287
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "说起来，你今天本来想找我玩什么？我先拉你听吉他，又把你拉进厨房，连游戏都还没开。",
+        "minimum_ms": 5132
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "来找你玩啊。具体做什么，我本来也没想好。现在有一小段吉他，还有这顿饭，我觉得挺赚的。",
+        "minimum_ms": 5389
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "那也行，下次接着这么来。想吃什么提前跟我说，我好买东西。别临到楼下发一句，今天突然想吃个大的。",
+        "minimum_ms": 6030
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你提议下次带一道自己做的。Lonya 立刻追问是什么，又说现在不想好也行，临时改主意记得告诉她。",
+        "minimum_ms": 6159
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "你是不是已经准备点评了？我还一道都没报出来。",
+        "minimum_ms": 2822
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "没有没有，你带什么我都挺想试的。先说好，别做一大锅搬过来，路上还得你一路护着，想想都费劲。",
+        "minimum_ms": 5774
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "饭后你收起碗，Lonya 跟进厨房，说她来洗，你帮忙擦干就好。这次没有来回客气，位置很快就分好了。",
+        "minimum_ms": 6287
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "今天我大概搞清楚你家杯子怎么放了，下次不用再问这么多。",
+        "minimum_ms": 3464
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "那下回直接拿。还有，你今天买的那个饮料挺好喝，走的时候记得把名字发我，刚才一忙，瓶子都让我扔袋子里了。",
+        "minimum_ms": 6544
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "水流在碗沿绕了一圈。你把擦干的杯子放回架子，Lonya 侧身让你过去，留在灯下的空位，已经不像第一次进厨房时那样陌生。",
+        "minimum_ms": 7570
+      }
+    ]
+  },
+  {
+    "title": "第3章 · 差一点也得重做",
+    "summary": "你去 Lonya 兼职的吧台坐坐，点了她最喜欢的“跳伞”。平时能跟你贫上半天的人，一碰量酒器就认真起来；拿错自己备的柠檬水，也没打算靠一句差不多混过去。",
+    "lines": [
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "一周后，你照着 Lonya 发的位置找到吧台。她正低头擦量酒器，听见你把椅子拖得一响，头都没抬就先笑了。",
+        "minimum_ms": 6739
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "这动静，我都不用看。椅子跟你有仇啊？坐这边，这个位置空着，我正好把手边东西收一下。",
+        "minimum_ms": 5314
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "找你这地方费老劲了。门口那块牌子，生怕别人看见是吧？",
+        "minimum_ms": 3370
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "你从反方向绕过来的。我给你标了入口，你是不是只看了最后一个红点？行，先喝水，导航大师辛苦了。",
+        "minimum_ms": 5962
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你把杯子接过来，喝了两口。吧台这会儿不忙，Lonya 把台面擦干，把一只干净的杯子放到你面前。",
+        "minimum_ms": 6091
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "来一杯你最喜欢的。叫什么，跳伞？我名字没记错吧？",
+        "minimum_ms": 3111
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "这回没错。先确认，今天不开车吧？还有不想喝的东西直接说，别等我做完，你说你其实只想喝汽水。",
+        "minimum_ms": 5832
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "坐车来的。都跑到这儿了，我总得尝尝你天天念叨那个。",
+        "minimum_ms": 3240
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "可以。不过先说，这杯是我自己一直这么叫的配方。你别下次去别的地方一拍桌子，要人家照着给你整。",
+        "minimum_ms": 5962
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "她抽出一张配方卡推到你面前。三个数字写得很清楚，下面还记着原料的批次，看起来比她发你的路线图好懂多了。",
+        "minimum_ms": 6610
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "三十、二十、十。你这比例还挺好记。",
+        "minimum_ms": 2592
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "三十毫升柠檬水，二十毫升蓝橙力娇酒，十毫升白朗姆。记名字，别光记数。你换三瓶东西倒进去，可别说跟我学的。",
+        "minimum_ms": 6739
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "没事，我一会儿拍下来。蓝橙就是那个蓝色的？我还以为能有点蓝莓味。",
+        "minimum_ms": 4147
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "没有，橙味。你不能见它是蓝的，就给它硬派一个蓝莓的活儿。颜色归颜色，味道你自己闻一下。",
+        "minimum_ms": 5573
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "Lonya 让你闻了闻瓶口附近的香气，很快就把瓶子收回原位。甜甜的柑橘气味跟你想象的确实不太一样。",
+        "minimum_ms": 6350
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "那柠檬水呢？就是平时喝的那种？",
+        "minimum_ms": 2592
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "用这份提前调好的。不是拿三十毫升纯柠檬汁直接倒。你要真那么干，喝一口，脸能当场皱成一团。",
+        "minimum_ms": 5702
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "听着像你已经见过那个画面了。",
+        "minimum_ms": 2592
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "我不想今天见。先把用的东西弄清楚，再按比例来。不同的柠檬水，酸甜不一样，酒也不是每瓶都一个甜法。",
+        "minimum_ms": 6221
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "她把量酒器转到你能看见刻度的角度，先量好一份。你看着那点液体，忍不住凑近了一点。",
+        "minimum_ms": 5184
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "就十毫升白朗姆，真差得出多倒一点吗？",
+        "minimum_ms": 2592
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "这杯加冰前一共才六十毫升。你多一点，再多一点，最后味道变了，然后你问我是不是今天手气不好，我上哪儿说理去。",
+        "minimum_ms": 6869
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "行行行，我不碰。看你刚才那个眼神，我都怕你给我手背来一下。",
+        "minimum_ms": 3759
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "我有那么凶吗？……算了，刚才可能有。你坐着就行，别探太近，我等会儿要拿冰。",
+        "minimum_ms": 4795
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "杯子已经预冷，配料按量进了摇壶。Lonya 检查过台面，又确认瓶子都盖好，才去取冰，没有停下来等你拍动作。",
+        "minimum_ms": 6869
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "不是有那种甩瓶子的吗，你会不会？",
+        "minimum_ms": 2592
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "不会。你要看我把瓶子扔地上倒是可以，但得先赔。我这个人比较实在，先保证给你的东西能好好喝进嘴里。",
+        "minimum_ms": 6221
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "那算了，预算都留给这一杯。这个要摇啊？我以为搅两下就行。",
+        "minimum_ms": 3629
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "这份有柑橘汁，用摇和比较合适。要混匀，也要降温、带进合适的稀释。不是酒少就随便搅，酒多就使劲摇。",
+        "minimum_ms": 6221
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "她说完把冰放进去，合紧摇壶，顺手检查了一下接口。你刚想再问，她抬抬下巴，让你稍等这一会儿。",
+        "minimum_ms": 5832
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "金属碰撞的声音在你面前响起来。动作比你想象中短，停下来时，壶壁已经起了一层水汽，她没有立刻急着倒。",
+        "minimum_ms": 6350
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "你怎么知道差不多了？靠手冷不冷？",
+        "minimum_ms": 2591
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "会看温度，也听声音，但不能光靠一个。冰多大、带多少水、东西原来多凉，都有影响。只背个秒数可不够。",
+        "minimum_ms": 6220
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "我懂了，我在家乱晃十下，不一定能喝到你这杯。",
+        "minimum_ms": 2850
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "对，就是这个意思。还有，加了冰别把壶搁旁边聊天。它不等你聊完才化。刚才让你等，是怕我一接话又没完了。",
+        "minimum_ms": 6479
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "蓝色酒液经过滤器落进杯子。你看着杯里的分量，又看看配方卡，Lonya 已经猜到你在琢磨什么。",
+        "minimum_ms": 5961
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "比六十毫升多很正常，冰融了一部分。那六十是投料，不是摇完硬卡着六十出杯。别拿这事举报我掺水啊。",
+        "minimum_ms": 6090
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "我还什么都没说。你倒把我想问的全说了。",
+        "minimum_ms": 2591
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "你盯着刻度那样，太明显了。先别拿，我试一下。这个味道得对，我才敢让你下结论。",
+        "minimum_ms": 4924
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "她取了干净的试饮管，尝过就丢进废弃物容器。原本要递杯子的动作却停住，她低头又闻了一下。",
+        "minimum_ms": 5572
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "等会儿，这杯不对。先放这儿。你别看我，我看看柠檬水，刚才这口酸味比我记的浅。",
+        "minimum_ms": 4924
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "我还没喝呢，你就判它不行了？",
+        "minimum_ms": 2591
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "嗯。总不能我自己都知道不对，还往你面前推。给我一分钟，我找一下是哪里弄岔了。",
+        "minimum_ms": 4924
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "Lonya 检查了两个容器的标记，很快把其中一个挪开。那份是平时饮用的淡柠檬水，刚补进来，位置放得太近。",
+        "minimum_ms": 6738
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "拿错这份了。我的问题，瓶子没分开放。重做，这杯不给你了。你再喝点水，别拿空杯敲我吧台。",
+        "minimum_ms": 5572
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "我也没那么急。就觉得你平时嘴挺能糊弄，到这儿倒一点不肯糊弄。",
+        "minimum_ms": 3887
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "嘴贫归嘴贫，这个不能混。今天你觉得好喝，下次再来，我总得让你喝到同一个东西，不是再抽一次奖。",
+        "minimum_ms": 5961
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "她换了干净的器具，把两份柠檬水彻底分开，再从量取开始。你没有再插话，等那杯清透的蓝重新推到面前。",
+        "minimum_ms": 6220
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "好了，这回可以。先闻一下，再尝一小口。你慢点，不是叫你一口闷，我还等着听你说味道呢。",
+        "minimum_ms": 5442
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "有橙子那种香，酸没有我想的冲。后面有点甜，但不会一直黏在嘴里。你刚才嫌的就是前面这一下太弱？",
+        "minimum_ms": 5961
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "对。你这不是挺会喝的。别急着夸我，喜欢就说喜欢，哪儿不舒服也说，我又不会把杯子从你手里抢回来。",
+        "minimum_ms": 6090
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "挺喜欢。就是颜色比我脑子里浅一点，还以为会蓝得特别夸张。",
+        "minimum_ms": 3628
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "要更深可以另试配方，但加蓝橙会连甜度、橙味和酒精一起加。不能光看颜色往里倒，那就乱了。",
+        "minimum_ms": 5572
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你又喝了一小口，摆摆手说这样就行。Lonya 把一杯水放在旁边，终于肯靠着吧台，跟你闲扯两句。",
+        "minimum_ms": 6090
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "说实话，你刚才重做的时候，我都没敢逗你。",
+        "minimum_ms": 2591
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "那是我当时在想事。现在可以逗，限量。你要拿“差不多得了”烦我，我可能还是会跟你再说一遍为什么不行。",
+        "minimum_ms": 6349
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "饶了我吧，三十、二十、十我都快背成乘法表了。你忙你的，我慢慢喝。",
+        "minimum_ms": 4146
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "行，我这儿收工还得一会儿。你先回去吧，到了给我发个消息。我晚点打给你，今天有件事特别想吐槽，一边忙一边说不痛快。",
+        "minimum_ms": 7257
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你把最后一点慢慢喝完，跟她摆摆手，起身往外走。Lonya 追着提醒你看好路，别又绕远，话音还没落，自己先笑了。",
+        "minimum_ms": 7127
+      }
+    ]
+  },
+  {
+    "title": "第4章 · 你先听我说完",
+    "summary": "Lonya 收工后打来电话，从回家路上一直聊到坐下休息。隔着手机，她说起今天的工作，又突然在意自己是不是只顾说，忘了问你还愿不愿意听。",
+    "lines": [
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你到家没多久，手机就亮了。屏幕上是 Lonya 的来电。接通以后，那边先传来一阵风声，接着是她一声特别长的叹气。",
+        "minimum_ms": 6630
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "到家了吧？我刚出来。刚才收工又找了半天东西，差点以为今天真得在那儿住了。你这会儿忙不忙？",
+        "minimum_ms": 5210
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "不忙，刚坐下。你怎么又找东西，上班那根笔呢，还在耳朵上挂着？",
+        "minimum_ms": 3552
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "你怎么一猜就中？我真找它找了半天，口袋翻了，台面看了，最后一低头，影子上多出来那么一截。",
+        "minimum_ms": 5210
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你笑出了声，听见那边也在笑。脚步声一下一下落着，Lonya 大概还在路上，说起找笔这事，自己也有点不好意思。",
+        "minimum_ms": 6394
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "这笔今天算是加班了，下了班还得陪你演这么一出。",
+        "minimum_ms": 2723
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "它加什么班，安安稳稳挂我脑袋上，是我折腾。幸好没带回家，不然明天还得专门给它安排一个返岗仪式。",
+        "minimum_ms": 5565
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "别明天了，你先看看现在身上还有没有顺出来的。",
+        "minimum_ms": 2605
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "等会儿，我真看一下。……没了，就手机钥匙和包。你别说，我刚还挺有信心，被你这么一问，突然不太敢保证。",
+        "minimum_ms": 5920
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "那边响了两下拉链声，接着脚步又继续了。你把手机换到另一边，顺手给自己倒了点水，听她说起刚才的重做。",
+        "minimum_ms": 5802
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "还有今天那杯，我后来想想还是气。两份柠檬水本来好好分着，刚补东西放近了一点，我就顺手拿错了。",
+        "minimum_ms": 5446
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "你不是自己发现了吗？我还没喝到，损失最大的大概是你在那儿生自己的气。",
+        "minimum_ms": 4026
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "是啊，越想越烦。平时老念叨检查标记，轮到自己也能顺手犯。手里重新量着，脑子里还在嘀咕，差点又把自己绕进去。",
+        "minimum_ms": 6275
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "你可没少提醒我慢点看。怎么到自己这儿，这句话要晚半天才能到账？",
+        "minimum_ms": 3671
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "听筒里短暂安静了一下，随后传来 Lonya 的笑。她说你这句挺会挑时候，又说先别得意，她已经把两份东西重新分开放了。",
+        "minimum_ms": 6867
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "还换了个显眼的标记，明天一眼就能看清。这个我回头得记一下，不然以后补东西，顺手又给放一块儿去了。",
+        "minimum_ms": 5683
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "行，听见了。你先看路，别一边跟我讲标记，一边自己拐错弯。",
+        "minimum_ms": 3315
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "不会，这段我闭着眼都……算了，不说满。到路口了，等个灯。你刚才那边咚一声，干什么呢？",
+        "minimum_ms": 4973
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "放杯子。吓你一跳？我开着免提，你听见的可能比我自己听见的都大。",
+        "minimum_ms": 3671
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "她也把音量调小了一点，说刚才还以为你撞到了什么。你让她接着讲，电话里很快又响起那种带着兴致的语气。",
+        "minimum_ms": 5802
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "今天还有个特别及时的事。我正腾不出手，旁边干净的杯子就补好了，位置还正好，不用我再拧着身子去够。",
+        "minimum_ms": 5683
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "你最顺手那一边？刚才我看你拿东西，老是往那儿伸。",
+        "minimum_ms": 2842
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "对，你居然注意到了。省那一下真能少点忙乱。不然一边手湿着，一边还想去搬，感觉自己下一秒就要弄出点动静。",
+        "minimum_ms": 6038
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "风声忽然轻了一些，Lonya 说进楼了。你听见她按钥匙的轻响，还没问到哪儿，她已经先报备，马上开门。",
+        "minimum_ms": 5920
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "等我一下，钥匙又躲包底下。……找着了。好了，我到家了。你别挂，我洗个手，把手机搁这儿。",
+        "minimum_ms": 5091
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "洗吧，我也没打算给你按秒收费。就是你这免提别贴着水池，我怕一会儿只能听见瀑布。",
+        "minimum_ms": 4618
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "远着呢，我有数。你刚才坐吧台那会儿也这么能接话，我估计那杯得多做十分钟，光顾着跟你贫了。",
+        "minimum_ms": 5210
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "水声响起又停下。过了一会儿，手机那边传来椅脚挪动的声音，Lonya 呼了口气，像终于把整个人都放了下来。",
+        "minimum_ms": 6157
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "坐下了。腿这会儿才跟我说今天站够了。我本来中途想歇五分钟，结果想到还有件事，又自己站回去了。",
+        "minimum_ms": 5446
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "合着你那个休息，主要是让椅子歇会儿。",
+        "minimum_ms": 2368
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "可不是，椅子休息得挺充分，我就喝了半口水。现在补上，你稍等，刚才一路说到这儿，嘴还真有点干。",
+        "minimum_ms": 5445
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你听见她喝水，自己也端起杯子。两边都安静了几秒，你以为终于有空问一句累不累，Lonya 又突然想起半块饼干。",
+        "minimum_ms": 6393
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "哎，我刚才忘了跟你说，今天还蹭到半块饼干。特别巧，刚想问要不要一起买点吃的，先递过来半块。",
+        "minimum_ms": 5327
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "所以你绕这么大一圈，重点是只吃到半块？",
+        "minimum_ms": 2367
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "也不是只为了吃。……但那个确实好吃，没够。我明天找找同款，买到给你留点，省得你又说我光讲不带实物。",
+        "minimum_ms": 5801
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "她说着像是顺手记了什么，纸页在听筒里擦了一下。你问还要列个购物单吗，Lonya 立刻说没有，别把她想得那么夸张。",
+        "minimum_ms": 6629
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "就是怕忘了。要不然明天走到店门口，想起自己要买东西，却想不起买什么。你别笑，这事我还真干过。",
+        "minimum_ms": 5445
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "没笑，我这不在听吗。你刚才不是还想吐槽别的来着，电话一接通，连笔都先上场了。",
+        "minimum_ms": 4498
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "对！我差点给忘了。今天有个点单，我听了好几句都没对上意思，想要清爽一点，又不想太酸，还不喜欢甜。",
+        "minimum_ms": 5682
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "Lonya 越说越起劲，语速都快了。她讲自己怎么换着问口味，问到后面终于对上，语气里那点得意隔着手机也听得出来。",
+        "minimum_ms": 6629
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "最后做出来了？还是你俩先在那儿研究到天黑？",
+        "minimum_ms": 2486
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "做出来了。对方喝完说就是这个意思，我才松口气。挺有意思的，东西还没做，人先把感觉一点一点捋出来了。",
+        "minimum_ms": 5801
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "听着你还挺喜欢这种费劲的活儿。",
+        "minimum_ms": 2367
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "对上了就高兴啊。一直猜不着才烦。就跟试东西，前面怎么都没反应，突然换个地方它动了，我能立刻精神起来。",
+        "minimum_ms": 5919
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你应了一声，那边又响起杯子落桌的声音。Lonya 说她刚想到一个办法，明天可以把常问的几件事顺一下，讲到一半又自己推翻。",
+        "minimum_ms": 7103
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "不行，弄得太死又像在照表问。算了，明天先试着换个开头。你看，我人都回来了，脑子还在那儿不肯下班。",
+        "minimum_ms": 5682
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "你不是出门就说下班了吗？这班跟你打电话，怕是还能再续一会儿。",
+        "minimum_ms": 3551
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "没办法，一想到就想接着弄。你等我把这点说完。其实今天最烦那个拿错的，跟后面这些一比，好像也没那么堵了。",
+        "minimum_ms": 6037
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你让她说。Lonya 的声音慢下来，提起你刚才尝完那一口，说闻到了橙子的味道，她当时其实挺高兴的。",
+        "minimum_ms": 5801
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "不是要你夸我多厉害，就是觉得没白重做。你真尝出差别了，我折腾那一轮就挺值，没白让你多等。",
+        "minimum_ms": 5209
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "我又没赶时间。真要赶，早跟你说了。下回你要再犯这个毛病，我先找个地方坐稳，省得你急。",
+        "minimum_ms": 4972
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "行，你坐稳，我别瞎急。哎，说到坐稳，我前两天录东西，差点跟着椅子一块儿滑出去，幸好脚还够得着地。",
+        "minimum_ms": 5682
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "话题一下又跑去了录制。她说到兴起，像在那头比画了两下，手机碰桌轻轻一响，随后自己先笑了，说这回可没再往后蹬。",
+        "minimum_ms": 6393
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "听着呢。你先把椅子坐明白，再给我讲后面，别最后还得拿手机呼叫救援。",
+        "minimum_ms": 3906
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "这回 Lonya 却没有立刻接梗。电话那边静了一小会儿，你听见她把手机拿近，刚才有些散的声音变清楚了。",
+        "minimum_ms": 6037
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "sorry",
+        "text": "等会儿……我是不是一直在说？从出门打给你，好像就没怎么停。你刚才是不是也想说点什么？",
+        "minimum_ms": 4972
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "sorry",
+        "text": "抱歉，我是不是说太多了？",
+        "minimum_ms": 2367
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "sorry",
+        "text": "今天一松下来，就逮着你说个没完。你要听累了直接告诉我，真的，别那边有事，还得拿着手机等我这头收尾。",
+        "minimum_ms": 5801
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "听筒里没再添新的话题。你看着还亮着的通话界面，听见她很轻地呼了口气。这次 Lonya 没急着填上安静，而是留给你回答。",
+        "minimum_ms": 6985
+      }
+    ]
+  },
+  {
+    "title": "第5章 · 我现在就想歇会儿",
+    "summary": "录制结束，累趴的 Lonya 主动打来电话。你顺嘴提了剪辑，她却只想先跟你吐槽两句。说开以后，通话两头各找了点吃的，又一起听完一首歌。",
+    "lines": [
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "又过了几天，傍晚手机跳出 Lonya 的来电。你接起来还没说你好，那头就传来一声闷闷的叹气，后面跟着鼠标被推开的轻响。",
+        "minimum_ms": 6311
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "喂，有空没？陪我说两句。我刚录完，人已经不想动了，趴桌上半天，连杯水都懒得够。",
+        "minimum_ms": 4172
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "还以为你失联了，不是说再录最后一点？你这最后一点怎么能从下午长到现在？",
+        "minimum_ms": 3744
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "我也想问。最后一点里面还有最后一点，东西修好了又得补讲，补完发现前面漏了。别问录了多久，我暂时不想算。",
+        "minimum_ms": 5455
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你把手边的事停下，靠着椅背听。电话那头传来一点布料摩擦的声音，Lonya 换了个姿势，声音还是带着刚忙完的疲惫。",
+        "minimum_ms": 5990
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "那现在是真录完了，还是电话一挂，你又想起哪儿没讲？",
+        "minimum_ms": 2674
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "真完了，文件都存了。就是今天有一段太离谱，我得说出来，不然等会儿躺下，它还得在我脑子里自己放一遍。",
+        "minimum_ms": 5241
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "来，看看这回又是谁干的。先说，跟我没关系，我今天没碰你那套东西。",
+        "minimum_ms": 3423
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "还能是谁，我自己呗。我对着镜头讲了半天，讲得特别有信心，回头一看，机器没动，东西全卡在前面。",
+        "minimum_ms": 4920
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "手机震了一下，她发来一小段回放。你没挂电话，切到聊天窗口点开，正好听见画面里的 Lonya 十分肯定地说下一步。",
+        "minimum_ms": 5990
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "你这儿还点头呢。不是，你讲这么起劲，真一点没发现？",
+        "minimum_ms": 2674
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "没有啊，我当时脑子跟着流程自己跑完了，眼睛没跟。等发现接错口，我整个人都安静了，还好那段没把麦克风关掉。",
+        "minimum_ms": 5562
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "那你快剪辑啊，这段留着多好。趁现在还记得，先把它拎出来呗。",
+        "minimum_ms": 3102
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "那边的鼠标声停了。隔着听筒，你听见她往椅背一靠，声音比刚才抬高一点，像是忽然又被塞回了还没收完的工作里。",
+        "minimum_ms": 5562
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "不想剪，累死了。我刚打过来想跟你聊会儿，你就叫我剪。你是不是不想听我唠，想赶紧把我安排回去干活？",
+        "minimum_ms": 5134
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "哪有。我以为你在愁那堆素材没弄完，顺嘴就接了。行，不催，你先说，我这回不瞎给你安排了。",
+        "minimum_ms": 4599
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "电话那边安静了两秒，随后传来一声很轻的笑。Lonya 又把笑收住，说你别答应得太利索，她还没把刚才那股劲缓过来。",
+        "minimum_ms": 5990
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "我是真累，刚才连时间线都不想多看。你一说快剪，我脑子里已经把坐回去戴耳机那套全过一遍了，更不想动。",
+        "minimum_ms": 5241
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "懂了，你是来找人说话的，我上来给你加个活。那你接着吐槽吧，今天我先不当那个特别有用的人。",
+        "minimum_ms": 4706
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "也没不让你有用。你现在听我说，就挺有用。等我真卡住了，我会问你，先让我把今天那点事倒完。",
+        "minimum_ms": 4706
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你把手机挪稳，说听着呢。那头的声音离得近了些，Lonya 似乎也把手机放到了更顺手的地方，终于继续刚才的回放。",
+        "minimum_ms": 5883
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "最气的还不是那个接口。修好了以后，我想特别帅地总结一下，结果名字说错。重说一遍，又错，连续两遍，你敢信？",
+        "minimum_ms": 5562
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "第二遍不是专门拿来改第一遍的吗？你这改得还挺有想法。",
+        "minimum_ms": 2781
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "别提，越提醒自己越急。第二遍一出口，我都不知道该接什么，安静了好几秒。现在回听，那个停顿还挺缺德的。",
+        "minimum_ms": 5348
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "她又发来一段，先让你把上一段关好，免得两边一起响。你点开，听见第二次说错以后那阵沉默，忍不住笑出了声。",
+        "minimum_ms": 5455
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "这个留着。别硬塞一堆字，就这么停一下，比你特意演还好笑。",
+        "minimum_ms": 2995
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "我也觉得，前面那下不能剪掉，不然第二遍就像莫名又来一次。得让它接着，你才能听出我当时多想补救。",
+        "minimum_ms": 5027
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "你看，我还没催，你自己已经在想怎么剪了。",
+        "minimum_ms": 2140
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "想想可以，动手不行。你可别马上接，那都想好了不如现在弄。我刚才那点脾气好不容易才顺下去。",
+        "minimum_ms": 4706
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "你说没有，保证这回只听。她笑了，接着自己又把刚才那句不想听她聊天翻出来，语速比方才慢一点。",
+        "minimum_ms": 4813
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "还有啊，刚才说你不想跟我聊，那个不算。我一累就容易想多，你才一句，我自己在后面接八百句，越接越不对。",
+        "minimum_ms": 5348
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "那你下回直接说，先别出主意。我也经常接话接太快，没听明白你是想聊，还是想拉我一起想办法。",
+        "minimum_ms": 4706
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "好，今天先聊。真有哪儿想问，我会说。现在就想歇会儿，顺便跟你贫两句，别一贫完又给自己找个事做。",
+        "minimum_ms": 5027
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "听筒里传来她挪杯子的声音。你让她先喝水，自己也起身去拿点吃的，回来时，她还在问你那边怎么忽然没动静了。",
+        "minimum_ms": 5455
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "拿了包饼干。你这电话赶得正好，我本来也没想好晚上干什么，现在有东西听，还有东西吃。",
+        "minimum_ms": 4386
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "你倒挺会过。等我看看我这儿还有什么，刚才累得不想动，一听你吃，我又觉得可以起来走两步。",
+        "minimum_ms": 4599
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "她没有挂电话，只说等一下。远处响起柜门开合的声音，过了一会儿人回来了，伴着包装袋哗啦一响，语气都精神了一点。",
+        "minimum_ms": 5776
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "找着面包了，还没过期，我真有先看。你别准备念叨我，我就刚才洗了手回来，顺便多检查了一下。",
+        "minimum_ms": 4705
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "我还没开口呢。快吃吧，别一会儿讲得高兴，又拿着在那儿晾半天。",
+        "minimum_ms": 3208
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "行，你也吃。等我把这口咽了，今天还有一段特别好笑，跟刚才那个没关系，纯粹是我自己话说太满。",
+        "minimum_ms": 4812
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "她真的停了一会儿。电话两头偶尔响一点包装袋的声音，你咬着饼干等，忽然觉得这样挂着，倒也不用一直找话题。",
+        "minimum_ms": 5454
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "你等会儿吃完，准备直接歇了？还是还得把刚才那几段做个记号？",
+        "minimum_ms": 3101
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "记个位置就行，备份已经弄了。我怕晚上躺着还老想，明天忘了怎么办。写一行省事，别让我继续开软件就行。",
+        "minimum_ms": 5240
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "她找了支笔，写字时还问你刚才那段是不是停顿留长一点更好。你说是，她嗯了一声，紧接着就把本子合上。",
+        "minimum_ms": 5133
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "好了，交给明天的我。她不能一直在后面等，总得干点活。今天我先不动，谁催都没用，你也别假装咳嗽提醒。",
+        "minimum_ms": 5240
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "我咽饼干呢，哪有这么多暗号。明天的你要是来问，我可实话实说，计划是你自己定的。",
+        "minimum_ms": 4171
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "行，算我的。你说我喜欢干这个吧，一干久了又烦。烦完歇一下，想到哪儿还能做得好玩，又想回去试。",
+        "minimum_ms": 4919
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "听出来了。不是不想录，是今天不想再录，尤其不想现在剪。这个区别我算记住了。",
+        "minimum_ms": 3957
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "对，就是这意思。要不说出来挺好，不然我自己还在想，明明喜欢，怎么还这么烦。其实就是该歇一下了。",
+        "minimum_ms": 5026
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "她那边传来一小段歌声，很快又被调低。Lonya 问会不会盖住电话，你说刚才没听清，问她放了什么。",
+        "minimum_ms": 5133
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "最近老听的一首。鼓一进来特别带劲，刚才录完本来就想放，结果趴着发了会儿呆，把这个也忘了。",
+        "minimum_ms": 4705
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "发我，我这边也放。你别隔着手机给我转播，听起来跟你把鼓塞进水杯里差不多。",
+        "minimum_ms": 3850
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "手机又震了一下。你点开她发来的歌，压低音量，两个人都没挂电话。前奏从各自的房间里响起来，只差了几秒。",
+        "minimum_ms": 5347
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "到中间你注意一下吉他那段。我最近还在练之前那个转位，比上回顺多了，听这个又想去试点新的。",
+        "minimum_ms": 4705
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "你手不酸了？刚才是谁连水都不想拿。",
+        "minimum_ms": 2139
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "今天不练，我还没这么能折腾。先记着，等哪天手痒了再弄。你下次来，我把之前那段完整弹给你听。",
+        "minimum_ms": 4812
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "可以，先给我留一个位置。别到时候又说没准备好，我都已经听过最早那一版了。",
+        "minimum_ms": 3850
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "她笑着答应，又讲起这首歌里自己喜欢的一点变化。说着说着忽然慢下来，像是又想起上次电话里问过你的那句话。",
+        "minimum_ms": 5454
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "calm",
+        "text": "我是不是又说个没完了？刚才明明说想找你随便聊两句，结果又变成我在这儿讲，你那边一直听。",
+        "minimum_ms": 4598
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "讲呗。我真烦了会打断你的，跟你还用装客气啊。先告诉我你说的那段在哪儿，别聊过去又从头找。",
+        "minimum_ms": 4705
+      },
+      {
+        "speaker": "Lonya",
+        "expression": "hello",
+        "text": "好，等一下，快到了。就是后面那一下，跟前面听着不太一样。你听完再说，我先不把自己想的全塞给你。",
+        "minimum_ms": 5026
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "她终于安静下来，你也没再去动进度条。那一段从歌里接出来，隔着一通还没挂断的电话，你听见她在那边轻轻嗯了一声。",
+        "minimum_ms": 5775
+      },
+      {
+        "speaker": "你",
+        "expression": "calm",
+        "text": "听见了，怪不得你想倒回去。我这边晚了几秒，你先别切，我再听完这儿。",
+        "minimum_ms": 3529
+      },
+      {
+        "speaker": "旁白",
+        "expression": "calm",
+        "text": "Lonya 说行，等你。电话两边都留着不大的音乐声，你把空包装放到一旁，听她不急着挂，也没有再提那份还没剪完的素材。",
+        "minimum_ms": 6203
+      }
+    ]
+  }
+]

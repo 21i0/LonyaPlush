@@ -1,0 +1,18 @@
+{
+  "format": "doll_umbrella_palette_v2",
+  "enabled": true,
+  "fabric_a": "#c75a73",
+  "fabric_b": "#87ad98",
+  "trim": "#f1d8c0",
+  "panels": [
+    "#c75a73",
+    "#dd6783",
+    "#ed8d82",
+    "#f1ac89",
+    "#afb696",
+    "#87ad98",
+    "#77a18a",
+    "#657aad"
+  ],
+  "palette_source": "Colors sampled from skin.png clothing; eight fabric sectors around the canopy."
+}

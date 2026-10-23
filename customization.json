@@ -1,0 +1,15 @@
+{
+  "variant": "B",
+  "mod_id": "lonya_plush",
+  "mod_name": "lonya plush",
+  "doll_name": "lonya plush",
+  "version": "1.21.1-1.1.2",
+  "registry_prefix": "lonya_plush",
+  "description": "Lonya 的彩虹玩偶与五章日常故事。",
+  "doll_name_en": "lonya plush",
+  "regression": true,
+  "offline": false,
+  "target": "neoforge_1_21_1",
+  "author": "2i学习",
+  "java_package": "com.customdoll.lonya_plush"
+}

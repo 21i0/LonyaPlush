@@ -1,0 +1,100 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.107'
+}
+def tomlText = { value -> def quoted = groovy.json.JsonOutput.toJson(value.toString()); quoted.substring(1, quoted.length()-1) }
+version = mod_version
+def utf8ModProperties = new Properties()
+file('gradle.properties').withReader('UTF-8') { utf8ModProperties.load(it) }
+utf8ModProperties.each { key, value -> ext.set(key, value) }
+group = 'com.customdoll.' + mod_id
+base { archivesName = mod_id }
+repositories { maven { url = uri('https://maven.theillusivec4.top/') } }
+dependencies {
+    compileOnly('top.theillusivec4.curios:curios-neoforge:9.5.1+1.21.1:api') { transitive = false }
+    if (providers.gradleProperty('checks').isPresent()) {
+        compileOnly('top.theillusivec4.curios:curios-neoforge:9.5.1+1.21.1') { transitive = false }
+    }
+    if (providers.gradleProperty('withCurios').isPresent()) {
+        runtimeOnly('top.theillusivec4.curios:curios-neoforge:9.5.1+1.21.1') { transitive = false }
+    }
+}
+java { toolchain.languageVersion = JavaLanguageVersion.of(21); withSourcesJar() }
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+neoForge {
+    version = project.neo_version
+    parchment { minecraftVersion = '1.21.1'; mappingsVersion = '2024.11.17' }
+    runs {
+        client { client(); gameDirectory = file('build/client'); jvmArguments.addAll '-Xmx2G', '-Xms512M' }
+        server { server(); gameDirectory = file('build/server'); programArgument '--nogui' }
+    }
+    mods { "${mod_id}" { sourceSet sourceSets.main } }
+}
+if (providers.gradleProperty('checks').isPresent()) {
+    sourceSets.main.java.srcDir 'src/checks/java'
+    sourceSets.main.resources.srcDir 'src/checks/resources'
+    tasks.register('syncVisualModMetadata', Copy) {
+        dependsOn tasks.named('processResources')
+        from(layout.buildDirectory.dir('resources/main/META-INF')) { into 'META-INF' }
+        into layout.buildDirectory.dir('classes/java/main')
+    }
+    tasks.register('syncRegressionModMetadata', Copy) {
+        dependsOn tasks.named('processResources')
+        from(layout.buildDirectory.dir('resources/main/META-INF')) { into 'META-INF' }
+        into layout.buildDirectory.dir('classes/java/main')
+    }
+    neoForge.runs {
+        regression { server(); gameDirectory = file(providers.gradleProperty('regressionDir').getOrElse('build/regression-20261014')); programArgument '--nogui'; systemProperty 'doll.checks', 'true' }
+        visual { client(); gameDirectory = file('build/visual'); programArguments.addAll '--width', '1440', '--height', '960'; systemProperty 'doll.visual', 'true'; jvmArguments.addAll '-Xmx2G', '-Xms512M' }
+        storyServer { server(); gameDirectory = file(providers.gradleProperty('storyServerDir').getOrElse('build/network-server-ui111')); programArguments.addAll '--nogui', '--port', '25595'; systemProperty 'lonya.network.server', 'true' }
+        storyClient { client(); gameDirectory = file('build/network-client-ui111'); programArguments.addAll '--width', '1280', '--height', '800', '--quickPlayMultiplayer', '127.0.0.1:25595'; systemProperty 'lonya.network.client', 'true'; jvmArguments.addAll '-Xmx2G', '-Xms512M' }
+    }
+    tasks.named('runRegression') { dependsOn tasks.named('syncRegressionModMetadata') }
+    tasks.named('runVisual') { dependsOn tasks.named('syncVisualModMetadata') }
+    tasks.named('runStoryServer') { dependsOn tasks.named('syncRegressionModMetadata') }
+    tasks.named('runStoryClient') { dependsOn tasks.named('syncVisualModMetadata') }
+    tasks.named('runStoryServer') {
+        doLast {
+            def log = file(providers.gradleProperty('storyServerDir').getOrElse('build/network-server-ui111') + '/logs/latest.log')
+            if (!log.exists() || !log.getText('UTF-8').contains('LONYA NETWORK SERVER CHECKS PASSED') || log.getText('UTF-8').contains('LONYA NETWORK SERVER CHECKS FAILED')) {
+                throw new GradleException('Story wire server check did not finish; inspect ' + log)
+            }
+        }
+    }
+    tasks.named('runStoryClient') {
+        doLast {
+            def log = file('build/network-client-ui111/logs/latest.log')
+            if (!log.exists() || !log.getText('UTF-8').contains('LONYA NETWORK CLIENT CHECKS PASSED') || log.getText('UTF-8').contains('LONYA NETWORK CLIENT CHECKS FAILED')) {
+                throw new GradleException('Story wire client check did not finish; inspect ' + log)
+            }
+        }
+    }
+}
+tasks.named('jar') { duplicatesStrategy = DuplicatesStrategy.EXCLUDE; exclude '**/checks/**'; exclude '**/*Checks*.class' }
+tasks.named('jar') {
+    eachFile { entry ->
+        if (sourceSets.main.output.classesDirs.files.any { entry.file.toPath().startsWith(it.toPath()) }
+                && !entry.path.endsWith('.class')) entry.exclude()
+    }
+    exclude 'neoforge.mods.toml'
+}
+tasks.named('jar') { exclude 'data/lonya_plush_checks/**' }
+tasks.named('processResources') {
+    filteringCharset = 'UTF-8'
+    inputs.properties([mod_id:mod_id, mod_version:mod_version, mod_name:mod_name, mod_description:mod_description])
+    filesMatching('META-INF/neoforge.mods.toml') { expand mod_id:mod_id, mod_version:mod_version, mod_name:tomlText(mod_name), mod_description:tomlText(mod_description) }
+}
+tasks.matching { it.name == 'runRegression' || it.name == 'runVisual' }.configureEach {
+    if (providers.gradleProperty('checks').isPresent()) {
+        doLast {
+            def log = file(name == 'runRegression' ? providers.gradleProperty('regressionDir').getOrElse('build/regression-20261014') + '/logs/latest.log' : 'build/visual/logs/latest.log')
+            def marker = name == 'runRegression' ? 'DOLL SERVER CHECKS PASSED' : 'DOLL VISUAL CHECKS PASSED'
+            if (!log.exists() || !log.getText('UTF-8').contains(marker) || log.getText('UTF-8').contains('CHECKS FAILED')) {
+                throw new GradleException('Game checks failed; inspect ' + log)
+            }
+            if (name == 'runRegression' && !log.getText('UTF-8').contains('LONYA STORY CHECKS PASSED')) throw new GradleException('Lonya story regression did not finish')
+            if (name == 'runRegression' && !log.getText('UTF-8').contains('LONYA COOLDOWN CHECKS PASSED')) throw new GradleException('Lonya cooldown regression did not finish')
+        }
+    }
+}
+tasks.named('sourcesJar') { exclude '**/checks/**', 'data/*_checks/**' }

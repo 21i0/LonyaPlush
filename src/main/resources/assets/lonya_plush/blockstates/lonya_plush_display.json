@@ -1,0 +1,9 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "lonya_plush:block/lonya_plush_display"
+      }
+    }
+  ]
+}
