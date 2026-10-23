@@ -26,9 +26,9 @@ public final class LonyaStoryChecks {
         int count=LonyaScript.chapter(chapter).lines().size();
         while(!progress.ended&&progress.chapter==chapter) {
             // Manual advance and both branch choices must work without advancing the clock.
-            boolean branch=chapter==3&&progress.line==count-1;
+            boolean branch=progress.line==LonyaScript.chapter(chapter).choiceLine();
             command(player,doll,session,branch?LonyaStoryService.CHOICE:LonyaStoryService.NEXT,choice);
-            if(branch&&choice==1)break;
+            if(branch&&chapter==3&&choice==1)break;
         }
     }
     public static void run(ServerLevel level) throws Exception {
@@ -46,6 +46,7 @@ public final class LonyaStoryChecks {
         }
         check(LonyaScript.chapter(3).lines().getFirst().text().contains("来电")&&LonyaScript.chapter(4).lines().getFirst().text().contains("来电"),"chapters four and five begin as phone calls");
         var owner=player(level,"LonyaStoryOwner");var guest=player(level,"LonyaStoryGuest");
+        LonyaProgress.get(level.getServer()).forPlayer(owner.getUUID()).affection=100;
         owner.getInventory().clearContent();owner.setPos(5,101,1);guest.setPos(5,101,1);
         var data=LonyaProgress.get(level.getServer());
         var marker=level.getServer().getWorldPath(LevelResource.ROOT).resolve("lonya-story-restart.txt");

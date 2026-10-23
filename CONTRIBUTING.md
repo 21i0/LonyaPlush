@@ -11,21 +11,13 @@
 
 GitHub 网页上下载 Actions artifact 通常需要登录。`dist/` 只保留本次交接的 1.1.2 成品，不会随每次 Actions 构建自动更新；以后下载最新构建请看 Actions。
 
-## 改剧情
+## 改剧情与闲聊
 
-最终游戏文本在 `src/main/resources/assets/lonya_plush/story/chapters.json`。网页上可以直接修改 `text`、`title`、`summary`。只改这些文字时，保持 JSON 语法和原有行序号、结构、`minimum_ms` 不变即可。
+主线文件为 `src/main/resources/assets/lonya_plush/story/chapter1.json` 至 `chapter5.json`；日常闲聊文件为同目录的 `causal.json`。每个主线 JSON 对应一章，直接编辑即可配置对白、选项的正负好感度变化、选项后独立路线与汇合对白，以及闲聊的表情和好感度范围。完整示例见 [剧情配置说明](docs/STORY_FORMAT.md)。修改后需重新打包，并同时更新客户端、服务端后重启。
 
-更适合整章写作的源文件是 `tools/rewrite_story.py`。修改其中三引号里的对白后，在电脑的仓库目录执行：
+主线已移除 `expression` 和 `minimum_ms`；自动播放时长由代码按文字长度计算，不再要求每章固定五分钟或固定段落数。现有五章、章节解锁顺序和 20／40／60／80／100 好感度门槛保留。第四章选项已配置为 JSON 分支，其他章节不额外添加结尾选项。
 
-```powershell
-py -X utf8 tools/rewrite_story.py
-```
-
-Linux/macOS 使用 `python3 tools/rewrite_story.py`。将脚本与生成的 `chapters.json` 一起提交。运行脚本会重写 JSON，之前如果只在 JSON 中改过文字，需要先同步到脚本。
-
-现版的五章行数是 61、60、59、59、64。脚本要求编号从 00 连续排列并保持这些行数；需要增减段落时，同步修改脚本的 `EXPECTED`。游戏加载器要求五章、每章至少 30 段，且该章 `minimum_ms` 合计为 300000（5 分钟的自动播放建议）。脚本会自动分配时长；手动翻页和快进没有句内强制等待。
-
-现有剧情约定：对白只有 Lonya 和玩家，旁白用“旁白”；第四、第五章是手机通话。第四章第一项解锁第五章，另一项结束本次路线；在解锁前不展示第五章。若只改台词，保留这些章节关系即可。
+`tools/rewrite_story.py` 中保留第 2–5 章的双人对白，可用 Python 3 恢复这些章节的原始文本。它会保留各章 JSON 中的 id、选项、分支和追加的共同对白，但会覆盖原始段落位置的文字；已直接修改章节 JSON 或调整段落顺序时不要直接运行，运行前先备份。第一章以 `origin_story.md` 与 `chapter1.json` 为准；日常闲聊不由此脚本生成。
 
 ## 换皮肤与眨眼
 
@@ -53,7 +45,7 @@ cooldownEnabled = true
 cooldownSeconds = 1200
 ```
 
-`false` 关闭冷却；`1200` 为 20 分钟，`300` 为 5 分钟，`0` 无需等待。保存并重启游戏或服务器。冷却由服务端按玩家保存，离线时间也计入；历史、CG 和回收不受影响。源码默认值在 `LonyaStoryConfig.java`，配置示例在 `config-examples/`。
+`false` 关闭冷却；`1200` 为 20 分钟，`300` 为 5 分钟，`0` 无需等待。保存并重启游戏或服务器。此配置仅控制章节拜访，日常闲聊的一分钟好感度奖励规则不受影响。冷却由服务端按玩家保存，离线时间也计入；历史、CG 和回收不受影响。源码默认值在 `LonyaStoryConfig.java`，配置示例在 `config-examples/`。
 
 ## 本地构建与调试
 
@@ -73,7 +65,7 @@ Linux/macOS：
 ./gradlew runClient --console=plain
 ```
 
-输出 `build/libs/lonya_plush-版本.jar` 可直接安装；`-sources.jar` 是源码包。开发检查代码在 `src/checks/`，用 `-Pchecks` 启用；成品 JAR 会排除检查代码。
+输出 `build/libs/lonya_plush-版本.jar` 可直接安装；`-sources.jar` 是源码包。历史开发检查代码在 `src/checks/`，用 `-Pchecks` 启用；其中固定时长、旧选项和旧闲聊冷却的断言适用于旧版规则，不能作为本次 JSON 分支版本的验收依据。成品 JAR 会排除检查代码。
 
 改动后建议递增 `gradle.properties` 的 `mod_version`，并同步 `customization.json`。改游戏显示名可编辑 `gradle.properties` 的 `mod_name` 及 `assets/lonya_plush/lang/` 下的语言文件。
 

@@ -45,7 +45,7 @@ public final class LonyaNetworkClientChecks {
    }
    if(!(client.screen instanceof LonyaScreen screen))return;
    var state=state(screen);
-   if(stage==0&&++delay>15) {shot(client,"wire-hub");click(screen,"聊聊天");stage=1;delay=0;}
+   if(stage==0&&++delay>15) {shot(client,"wire-hub");click(screen,net.minecraft.network.chat.Component.translatable("gui.lonya_plush.visit").getString());click(screen,"01  ");stage=1;delay=0;}
    else if(stage==1&&state.get("mode").getAsInt()==1&&++delay>2) {
     check(state.get("line").getAsInt()==0,"fresh story starts at zero");
     screen.keyPressed(GLFW.GLFW_KEY_ENTER,0,0);
@@ -67,21 +67,27 @@ public final class LonyaNetworkClientChecks {
    } else if(stage==5&&++delay>12) {
     check(!(boolean)get(screen,"fastForward"),"fast forward toggles off");
     click(screen,"快进");stage=8;delay=0;
+   } else if(stage==8&&state.get("chapter").getAsInt()==0&&state.get("line").getAsInt()==LonyaScript.chapter(0).choiceLine()&&++delay>10) {
+    click(screen,LonyaScript.chapter(0).choices().getFirst().text());delay=0;
    } else if(stage==8&&state.get("chapter").getAsInt()==1&&state.get("mode").getAsInt()==0&&++delay>10) {
     check(state.get("cooldown_remaining_ms").getAsLong()>1_100_000,"server sent twenty-minute chapter cooldown");
-    var talk=(Button)get(screen,"talkButton");check(!talk.active&&talk.getMessage().getString().contains("休息中"),"real talk widget disabled during cooldown");
+    var talk=(Button)get(screen,"talkButton");check(talk.active,"daily chat has its own cooldown independent of visits");
     shot(client,"wire-chapter-cooldown");
     net.neoforged.neoforge.network.PacketDistributor.sendToServer(new LonyaNetwork.Request(state.get("entity").getAsInt(),state.get("token").getAsLong(),state.get("revision").getAsInt(),LonyaStoryService.CONTINUE,0));
     stage=9;delay=0;
    } else if(stage==9&&++delay>20) {
     check(state.get("mode").getAsInt()==0&&state.get("line").getAsInt()==0&&((String)get(screen,"message")).contains("正在休息"),"server rejects forged continue during cooldown");
-    click(screen,"历史章节");
+    click(screen,net.minecraft.network.chat.Component.translatable("gui.lonya_plush.history").getString());
     click(screen,"01  ");
     check(!((Button)get(screen,"replayButton")).active,"real replay widget disabled during cooldown");
     click(screen,"查看 CG");shot(client,"wire-review-during-cooldown");screen.keyPressed(GLFW.GLFW_KEY_ESCAPE,0,0);screen.keyPressed(GLFW.GLFW_KEY_ESCAPE,0,0);
     stage=6;delay=0;
    } else if(stage==6&&state.get("mode").getAsInt()==0&&++delay>10) {
-    shot(client,"wire-before-reclaim");click(screen,"回收玩偶");stage=7;delay=0;
+    check(state.get("affection").getAsInt()==102,"kind chapter choice synchronized two affection points");
+    click(screen,net.minecraft.network.chat.Component.translatable("gui.lonya_plush.daily_chat").getString());stage=10;delay=0;
+   } else if(stage==10&&state.get("affection").getAsInt()==103&&++delay>10) {
+    check(!((Button)get(screen,"talkButton")).active&&state.get("daily_cooldown_remaining_ms").getAsLong()>1_100_000,"daily chat synchronizes affection and independent cooldown over real wire");
+    shot(client,"wire-before-reclaim");click(screen,net.minecraft.network.chat.Component.translatable("gui.lonya_plush.reclaim").getString());stage=7;delay=0;
    }
   }catch(Throwable failure){finished=true;com.mojang.logging.LogUtils.getLogger().error("LONYA NETWORK CLIENT CHECKS FAILED",failure);client.stop();}
  }

@@ -72,6 +72,8 @@ public final class DollEntity extends PathfinderMob {
  @Override public void tick() {
   super.tick();
   if(!level().isClientSide) {
+   if(owner!=null&&level().getPlayerByUUID(owner) instanceof net.minecraft.server.level.ServerPlayer player)
+    com.customdoll.lonya_plush.story.LonyaStoryService.accompany(player,this);
    if (tickCount % 10 == 0) sharedUmbrella = DollUmbrellaProtocol.sample(level(), DollUmbrellaProtocol.entity(this)).shared();
    int left=entityData.get(ACTION_TICKS);
    if(left>0) {entityData.set(ACTION_TICKS,left-1);if(left==1)entityData.set(ACTION,0);}

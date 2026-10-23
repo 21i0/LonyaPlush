@@ -5,14 +5,14 @@
   "fabric_b": "#87ad98",
   "trim": "#f1d8c0",
   "panels": [
-    "#c75a73",
+    "#feb5c0",
     "#dd6783",
-    "#ed8d82",
-    "#f1ac89",
-    "#afb696",
-    "#87ad98",
-    "#77a18a",
-    "#657aad"
+    "#fba585",
+    "#fcce9a",
+    "#bcd8a6",
+    "#a6d8bc",
+    "#b8c3ee",
+    "#edbbf0"
   ],
   "palette_source": "Colors sampled from skin.png clothing; eight fabric sectors around the canopy."
 }

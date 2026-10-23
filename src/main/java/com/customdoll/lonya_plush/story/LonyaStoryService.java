@@ -4,6 +4,7 @@ import com.customdoll.lonya_plush.DollMod;
 import com.customdoll.lonya_plush.content.entity.DollEntity;
 import com.customdoll.lonya_plush.content.DollOwnership;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonArray;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -15,13 +16,14 @@ import java.util.function.LongSupplier;
 /** Owner-bound leases, freely paced reading and replay-safe choices. */
 @EventBusSubscriber(modid=DollMod.MODID)
 public final class LonyaStoryService {
-    public static final int CONTINUE=1, NEXT=2, CHOICE=3, REPLAY=4, RECLAIM=5, CLOSE=6, HEARTBEAT=7, HUB=8;
+    public static final int CONTINUE=1, NEXT=2, CHOICE=3, REPLAY=4, RECLAIM=5, CLOSE=6, HEARTBEAT=7, HUB=8, DAILY_CHAT=9;
     private static final Map<UUID, Session> SESSIONS=new HashMap<>();
     private static final LongSupplier CLOCK=System::nanoTime;
     public static final class Session {
         public final DollEntity doll;
         public final long token=new java.security.SecureRandom().nextLong();
         public int revision, mode;
+        private String casualText="", casualExpression="hello";
         private long heartbeat, sample;
         private boolean visible;
         private final LongSupplier clock, wallClock;
@@ -35,6 +37,12 @@ public final class LonyaStoryService {
                 &&doll.level()==player.level()&&doll.distanceToSqr(player)<=36&&player.getUUID().equals(doll.ownerId());
     }
     public static Session open(ServerPlayer player, DollEntity doll) { return open(player,doll,CLOCK); }
+    public static void accompany(ServerPlayer player, DollEntity doll) {
+        if(!valid(player,doll))return;
+        var data=LonyaProgress.get(player.server);
+        data.accompany(data.forPlayer(player.getUUID()),player.server.getTickCount());
+        if(doll.tickCount%10==0)LonyaGifts.collect(player,doll,data);
+    }
     public static Session open(ServerPlayer player, DollEntity doll, LongSupplier clock) {
         return open(player,doll,clock,System::currentTimeMillis);
     }
@@ -57,12 +65,35 @@ public final class LonyaStoryService {
         if(packet.action()==HEARTBEAT) { session.heartbeat=now;session.visible=packet.value()==1;session.sample=now;return; }
         if(packet.revision()!=session.revision) { send(player,session,false,"操作已更新，请稍后再试。");return; }
         var data=LonyaProgress.get(player.server);var progress=data.forPlayer(player.getUUID());
+        // The menu reports affection before the chapter cooldown, without changing screens.
+        if(packet.action()==CONTINUE) {
+            if(progress.ended) {send(player,session,false,"本次主线剧情已结束，可在历史回顾中重玩已解锁的章节。");return;}
+            if(progress.affection<LonyaProgress.requiredAffection(progress.chapter)) {
+                send(player,session,false,"目前好感度不足以继续推进剧情，需要好感度："+LonyaProgress.requiredAffection(progress.chapter)
+                        +"；注：好感度可以通过闲聊、陪伴在玩偶附近、在玩偶附近丢钻石等贵重物品或章节中获得");return;
+            }
+            if(!progress.storyAvailable(progress.chapter)) {send(player,session,false,"请先完成前置剧情，可在历史回顾中重玩并选择其他回答。");return;}
+        }
         if(packet.action()==CONTINUE||packet.action()==REPLAY||packet.action()==NEXT||packet.action()==CHOICE) {
             long remaining=LonyaStoryConfig.remainingMillis(progress,session.wallClock.getAsLong());
-            if(remaining>0) {send(player,session,false,"Lonya 正在休息，距离下次聊天还有 "+LonyaStoryConfig.countdown(remaining)+"。");return;}
+            if(remaining>0) {send(player,session,false,"Lonya 正在休息，距离下次拜访还有 "+LonyaStoryConfig.countdown(remaining)+"。");return;}
         }
         switch(packet.action()) {
-            case CONTINUE -> { if(!progress.ended)session.mode=1; }
+            case DAILY_CHAT -> {
+                if(session.mode!=0)return;
+                var eligible=LonyaScript.CASUAL.stream().filter(line->line.eligible(progress.affection)).toList();
+                if(eligible.isEmpty()) {send(player,session,false,"当前好感度下暂无可用的闲聊。");return;}
+                var casual=eligible.get(player.getRandom().nextInt(eligible.size()));
+                long wallNow=session.wallClock.getAsLong();
+                if(LonyaStoryConfig.dailyRemainingMillis(progress,wallNow)==0)data.addAffection(progress,1);
+                // Every chat restarts the one-minute inactivity interval, even without a reward.
+                progress.lastDailyChatAtMillis=Math.max(1,wallNow);data.setDirty();
+                session.casualText=casual.text();session.casualExpression=casual.expression();
+                session.revision++;send(player,session,false,session.casualText);return;
+            }
+            case CONTINUE -> {
+                session.mode=1;data.recordLine(progress);
+            }
             case HUB -> session.mode=0;
             case REPLAY -> {
                 if(!progress.available(packet.value())) {send(player,session,false,"这一章尚未解锁。");return;}
@@ -74,21 +105,25 @@ public final class LonyaStoryService {
             }
             case NEXT, CHOICE -> {
                 if(session.mode!=1||progress.ended)return;
-                var chapter=LonyaScript.chapter(progress.chapter);
-                boolean last=progress.line==chapter.lines().size()-1;
+                var line=LonyaScript.chapter(progress.chapter).lines().get(progress.line);
                 // Reading duration is an autoplay suggestion, never an authorization gate.
-                boolean branch=last&&progress.chapter==3;
-                if(branch ? packet.action()!=CHOICE||packet.value()<0||packet.value()>1 : packet.action()!=NEXT)return;
-                if(last) {
-                    int previous=progress.chapter;data.complete(progress,packet.value(),session.wallClock.getAsLong());session.mode=0;
-                    String message=previous==3&&packet.value()==1
-                            ? "听筒那边停了一下。‘嗯，那我先挂了。你也早点休息。’Lonya 没再接着讲。\n本次通话结束；可在历史章节重玩第四章，重新作出选择。"
-                            : previous==4 ? "音乐播完，你们又闲扯了几句才挂电话。那份素材留给明天，今晚先好好歇着。"
-                            : previous==3 ? "‘那我可接着说了啊。’电话那头的 Lonya 笑起来，声音又轻快了。第五章已解锁。"
-                            : "本章已读完，下一章已解锁。";
+                boolean branch=!line.choices().isEmpty();
+                if(branch ? packet.action()!=CHOICE||packet.value()<0||packet.value()>=line.choices().size() : packet.action()!=NEXT)return;
+                int target=line.next();
+                if(branch) {
+                    var choice=line.choices().get(packet.value());
+                    data.rewardChoice(progress,choice.affection());
+                    if(choice.unlockFifth())progress.fifthUnlocked=true;
+                    if(choice.endRoute())progress.endAfterChapter=true;
+                    target=choice.next();
+                }
+                if(target<0) {
+                    data.complete(progress,0,session.wallClock.getAsLong());session.mode=0;
+                    String message=progress.ended?"本次拜访已结束，可在历史回顾中重玩已解锁的章节。"
+                            : "本章已读完，好感度达到 "+LonyaProgress.requiredAffection(progress.chapter)+" 后可拜访下一章。";
                     session.revision++;session.visible=false;send(player,session,false,message);return;
                 }
-                progress.line++;progress.readMillis=0;data.setDirty();
+                progress.line=target;progress.readMillis=0;data.recordLine(progress);data.setDirty();
             }
             default -> {return;}
         }
@@ -109,6 +144,9 @@ public final class LonyaStoryService {
         json.addProperty("entity",session.doll.getId());json.addProperty("token",session.token);json.addProperty("revision",session.revision);
         json.addProperty("chapter",progress.chapter);json.addProperty("line",progress.line);json.addProperty("read_ms",progress.readMillis);
         json.addProperty("completed",progress.completed);json.addProperty("fifth_unlocked",progress.fifthUnlocked);
+        json.addProperty("affection",progress.affection);
+        json.addProperty("casual_text",session.casualText);json.addProperty("casual_expression",session.casualExpression);
+        var history=new JsonArray();progress.history.forEach(history::add);json.add("history",history);
         json.addProperty("cooldown_remaining_ms",LonyaStoryConfig.remainingMillis(progress,session.wallClock.getAsLong()));
         json.addProperty("ended",progress.ended);json.addProperty("mode",session.mode);json.addProperty("open",open);json.addProperty("message",message);
         return json.toString();

@@ -20,11 +20,12 @@ public final class LonyaScreen extends Screen {
     private static final int PANEL=0xFFCBCCD4,LIGHT=0xFFF2F2F2,SLOT=0xFFADB0C4,
             SHADOW=0xFF9A9FB4,INK=0xFF413F54,MUTED=0xFF6D7287,BLUE=0xFF517497;
     private JsonObject state;
-    // 0: interaction menu; 1: story; 2: chapter library / CG; 3: backlog overlay.
-    private int page,returnPage,ticks,scroll,galleryChapter,textSpeed=2,revealTicks;
+    // 0: interaction menu; 1: story; 2: chapter library / CG; 3: backlog.
+    private int page,returnPage,ticks,scroll,galleryChapter,textSpeed=2,revealTicks,choicePage,choiceTop;
     private boolean automatic,fastForward,waiting,fullText,gallery,hidden,draggingScroll;
     private String message="";
-    private Button next,talkButton,replayButton;
+    private Button next,talkButton,replayButton,visitButton;
+    private final Map<Integer,Button> chapterButtons=new HashMap<>();
     private long cooldownSnapshotNanos=System.nanoTime();
     private float unit=1;
     private int x,y,w,h,dialogueY,dialogueH,historyLimit,historyMax;
@@ -34,8 +35,9 @@ public final class LonyaScreen extends Screen {
     private record HistoryRow(FormattedCharSequence text,int color) { }
 
     private LonyaScreen(JsonObject state) {
-        super(Component.literal("lonya plush · 晴色日常"));
+        super(Component.translatable("gui.lonya_plush.title"));
         this.state=state;page=number("mode");returnPage=page;galleryChapter=number("chapter");seedHistory();
+        if(state.has("casual_text"))message=state.get("casual_text").getAsString();
     }
     public static void accept(String raw) {
         var state=JsonParser.parseString(raw).getAsJsonObject();var client=Minecraft.getInstance();
@@ -43,59 +45,63 @@ public final class LonyaScreen extends Screen {
         if(state.get("open").getAsBoolean()) {client.setScreen(new LonyaScreen(state));return;}
         if(!(client.screen instanceof LonyaScreen screen)||screen.number("entity")!=state.get("entity").getAsInt())return;
         boolean changed=screen.number("revision")!=state.get("revision").getAsInt();
-        int oldChapter=screen.number("chapter"),oldLine=screen.number("line");
         screen.state=state;screen.cooldownSnapshotNanos=System.nanoTime();String note=state.get("message").getAsString();
         if(!note.isBlank()) {screen.message=note;screen.waiting=false;}
         // A periodic snapshot cannot release an in-flight action before its acknowledgement.
         if(changed) {
             screen.page=state.get("mode").getAsInt();screen.returnPage=screen.page;
-            screen.gallery=false;screen.hidden=false;screen.waiting=false;screen.fullText=false;screen.revealTicks=0;
+            screen.gallery=false;screen.hidden=false;screen.waiting=false;screen.fullText=false;screen.revealTicks=0;screen.choicePage=0;
+            screen.seedHistory();
             if(screen.page==1) {
-                if(oldChapter!=screen.number("chapter")||oldLine!=screen.number("line")||screen.history.isEmpty())screen.recordLine();
                 if(screen.branch()) {screen.automatic=false;screen.fastForward=false;}
-                client.getNarrator().sayNow(Component.literal(screen.line().speaker()+"："+screen.line().text()));
+                client.getNarrator().sayNow(Component.literal(screen.line().speaker()+"："+screen.lineText()));
             } else {screen.automatic=false;screen.fastForward=false;}
             screen.rebuildWidgets();
         }
         screen.updateEntryButtons();
     }
     private int number(String key) {return state.get(key).getAsInt();}
-    private long cooldownMillis() {
-        long received=state.has("cooldown_remaining_ms")?state.get("cooldown_remaining_ms").getAsLong():0;
+    private static String playerText(String text) {
+        var player=Minecraft.getInstance().player;
+        return player==null?text:text.replace("{玩家ID}",player.getName().getString());
+    }
+    private String lineText() {return playerText(line().text());}
+    private long cooldownMillis() {return cooldownMillis("cooldown_remaining_ms");}
+    private long cooldownMillis(String key) {
+        long received=state.has(key)?state.get(key).getAsLong():0;
         return Math.max(0,received-Math.max(0,(System.nanoTime()-cooldownSnapshotNanos)/1_000_000));
     }
     private void updateEntryButtons() {
         long remaining=cooldownMillis();boolean cooling=remaining>0;
         if(talkButton!=null) {
-            talkButton.active=!flag("ended")&&!waiting&&!cooling;
-            talkButton.setMessage(Component.literal(cooling?"休息中 · "+LonyaStoryConfig.countdown(remaining):flag("ended")?"路线已结束":"聊聊天"));
+            talkButton.active=!waiting;
         }
         if(replayButton!=null) {
             replayButton.active=unlocked(galleryChapter)&&!waiting&&!cooling;
             replayButton.setMessage(Component.literal(cooling?"冷却 "+LonyaStoryConfig.countdown(remaining):"从头重玩"));
         }
+        if(visitButton!=null)visitButton.active=!waiting;
+        chapterButtons.forEach((i,b)->b.active=reviewable(i));
     }
     private boolean flag(String key) {return state.get(key).getAsBoolean();}
     private LonyaScript.Line line() {return LonyaScript.chapter(number("chapter")).lines().get(number("line"));}
-    private boolean unlocked(int i) {return i==0||(i==4?flag("fifth_unlocked"):(number("completed")&(1<<(i-1)))!=0);}
+    private int affection() {return state.has("affection")?number("affection"):0;}
+    private boolean storyUnlocked(int i) {return i==0||(i==4?flag("fifth_unlocked")&&completed(3):(number("completed")&(1<<(i-1)))!=0);}
+    private boolean unlocked(int i) {return storyUnlocked(i)&&affection()>=LonyaProgress.requiredAffection(i);}
+    private boolean reviewable(int i) {return completed(i)||unlocked(i);}
     private boolean completed(int i) {return (number("completed")&(1<<i))!=0;}
     private int visibleChapters() {return flag("fifth_unlocked")?5:4;}
-    private boolean last() {return number("line")==LonyaScript.chapter(number("chapter")).lines().size()-1;}
-    private boolean branch() {return number("chapter")==3&&last();}
+    private boolean last() {return line().next()<0&&!branch();}
+    private boolean branch() {return !line().choices().isEmpty();}
     private int s(float n) {return Math.round(n*unit);}
     private void seedHistory() {
-        for(int c=0;c<=number("chapter");c++) {
-            if(c<number("chapter")&&!completed(c))continue;
-            var lines=LonyaScript.chapter(c).lines();int end=c==number("chapter")?number("line"):lines.size()-1;
-            for(int i=0;i<=end;i++) {var l=lines.get(i);history.add(new HistoryEntry(c,i,l.speaker(),l.text()));}
+        history.clear();
+        if(!state.has("history"))return;
+        for(var entry:state.getAsJsonArray("history")) {
+            int value=entry.getAsInt(),c=value/LonyaProgress.HISTORY_STRIDE,i=value%LonyaProgress.HISTORY_STRIDE;
+            if(c<0||c>=5||i<0||i>=LonyaScript.chapter(c).lines().size())continue;
+            var line=LonyaScript.chapter(c).lines().get(i);history.add(new HistoryEntry(c,i,line.speaker(),playerText(line.text())));
         }
-        while(history.size()>512)history.removeFirst();
-    }
-    private void recordLine() {
-        int c=number("chapter"),i=number("line");
-        if(!history.isEmpty()) {var tail=history.getLast();if(tail.chapter==c&&tail.line==i)return;}
-        history.add(new HistoryEntry(c,i,line().speaker(),line().text()));
-        while(history.size()>512)history.removeFirst();
     }
     private void request(int action,int value) {
         boolean passive=action==LonyaStoryService.HEARTBEAT||action==LonyaStoryService.CLOSE;
@@ -114,6 +120,7 @@ public final class LonyaScreen extends Screen {
         if(waiting)return;
         returnPage=page;page=2;gallery=false;galleryChapter=number("chapter");pauseReading();rebuildWidgets();
     }
+    private static String tr(String key,Object... args) {return Component.translatable("gui.lonya_plush."+key,args).getString();}
     private void openHistory() {
         if(page!=1||waiting)return;
         returnPage=1;page=3;pauseReading();rebuildWidgets();scroll=historyMax;
@@ -126,15 +133,16 @@ public final class LonyaScreen extends Screen {
         unit=Math.max(1,Math.min(width/800f,height/450f));
         dialogueH=Math.min(s(108),Math.max(s(width<s(480)?96:88),Math.round(height*.24f)));
         dialogueY=height-dialogueH-s(10);
-        choiceButtons.clear();next=null;talkButton=null;replayButton=null;
+        choiceButtons.clear();chapterButtons.clear();next=null;talkButton=null;replayButton=null;visitButton=null;
         if(page==1&&branch()) {automatic=false;fastForward=false;}
         if(page==0) {
             w=Math.min(width-s(24),s(430));h=Math.min(height-s(20),s(250));x=(width-w)/2;y=(height-h)/2;
-            button("关闭",x+w-s(48),y+s(5),s(39),s(18),b->onClose(),true,()->false);
-            int artW=Math.min(s(126),w/3),bx=x+artW+s(24),bw=w-artW-s(36),by=y+h-s(93);
-            talkButton=button("聊聊天",bx,by,bw,b->request(LonyaStoryService.CONTINUE,0),true);
-            button("历史章节",bx,by+s(27),bw,b->openLibrary(),true);
-            button("回收玩偶",bx,by+s(54),bw,b->request(LonyaStoryService.RECLAIM,0),true).active=!waiting;
+            button(tr("close"),x+w-s(47),y+s(7),s(39),s(18),b->onClose(),true,()->false);
+            int artW=Math.min(s(126),w/3),bx=x+artW+s(24),gap=s(6),bw=(w-artW-s(36)-gap)/2,by=y+h-s(66);
+            talkButton=button(tr("daily_chat"),bx,by,bw,b->request(LonyaStoryService.DAILY_CHAT,0),true);
+            visitButton=button(tr("visit"),bx+bw+gap,by,bw,b->request(LonyaStoryService.CONTINUE,0),true);
+            button(tr("history"),bx,by+s(27),bw,b->openLibrary(),true);
+            button(tr("reclaim"),bx+bw+gap,by+s(27),bw,b->request(LonyaStoryService.RECLAIM,0),true).active=!waiting;
         } else if(page==1) {
             if(hidden)return;
             int margin=s(12),gap=s(3),count=width<s(480)?5:7;
@@ -152,9 +160,20 @@ public final class LonyaScreen extends Screen {
             button("×",width-s(39),s(9),s(27),s(19),b->onClose(),false,()->false);
             if(branch()) {
                 automatic=false;fastForward=false;
-                int cbw=Math.min(width-s(32),s(440)),cx=(width-cbw)/2,cy=dialogueY-s(61);
-                choiceButtons.add(button("没有不耐烦啊，我挺喜欢听你说的",cx,cy,cbw,s(25),b->request(LonyaStoryService.CHOICE,0),false,()->false));
-                choiceButtons.add(button("有点吧，毕竟我也不是很懂你说的",cx,cy+s(30),cbw,s(25),b->request(LonyaStoryService.CHOICE,1),false,()->false));
+                int cbw=Math.min(width-s(32),s(440)),cx=(width-cbw)/2;
+                var choices=line().choices();
+                int perPage=Math.max(1,(dialogueY-s(70))/s(30)),pages=(choices.size()+perPage-1)/perPage;
+                choicePage=Math.clamp(choicePage,0,pages-1);
+                int start=choicePage*perPage,end=Math.min(choices.size(),start+perPage);
+                int cy=dialogueY-s(8)-s(30)*(end-start);choiceTop=cy;
+                if(pages>1) {
+                    button("上一组选项",cx,cy-s(42),(cbw-s(6))/2,s(20),b->{choicePage--;rebuildWidgets();},false,()->false).active=choicePage>0;
+                    button("下一组选项",cx+(cbw+s(6))/2,cy-s(42),(cbw-s(6))/2,s(20),b->{choicePage++;rebuildWidgets();},false,()->false).active=choicePage+1<pages;
+                }
+                for(int i=start;i<end;i++) {
+                    final int choice=i;
+                    choiceButtons.add(button(playerText(choices.get(i).text()),cx,cy+s(30)*(i-start),cbw,s(25),b->request(LonyaStoryService.CHOICE,choice),false,()->false));
+                }
             }
             updateReadingButtons();
         } else if(page==3) {
@@ -171,12 +190,13 @@ public final class LonyaScreen extends Screen {
             }
             w=Math.min(width-s(24),s(760));h=Math.min(height-s(24),s(410));x=(width-w)/2;y=(height-h)/2;
             boolean wide=w>=s(530);
-            int listW=wide?(w-s(40))/2:w-s(28),rowH=(h-s(wide?92:100))/visibleChapters();
-            for(int i=0;i<visibleChapters();i++) {
+            int count=visibleChapters();
+            int listW=wide?(w-s(40))/2:w-s(28),rowH=(h-s(wide?92:100))/count;
+            for(int i=0;i<count;i++) {
                 final int chapter=i;
                 var b=button(String.format("%02d  ",i+1)+LonyaScript.chapter(i).title().replaceFirst("第\\d章 · ",""),
                         x+s(14),y+s(43)+i*rowH,listW,rowH-s(4),ignored->{galleryChapter=chapter;rebuildWidgets();},true,()->galleryChapter==chapter);
-                b.active=unlocked(i);
+                chapterButtons.put(i,b);
             }
             int ax=x+s(14),ay=y+h-s(34),bw=Math.min(s(116),(w-s(42))/3);
             button(returnPage==1?"返回阅读":"返回菜单",ax,ay,bw,b->back(),true);
@@ -186,17 +206,17 @@ public final class LonyaScreen extends Screen {
         updateEntryButtons();
     }
     private int visibleCount() {
-        return fullText||textSpeed==0?line().text().length():Math.min(line().text().length(),(int)(revealTicks*50.0/(textSpeed==4?18:36)));
+        return fullText||textSpeed==0?lineText().length():Math.min(lineText().length(),(int)(revealTicks*50.0/(textSpeed==4?18:36)));
     }
     private void advance() {
         if(page!=1||waiting||hidden)return;
-        if(visibleCount()<line().text().length()) {fullText=true;updateReadingButtons();return;}
+        if(visibleCount()<lineText().length()) {fullText=true;updateReadingButtons();return;}
         if(!branch())request(LonyaStoryService.NEXT,0);
     }
     private void updateReadingButtons() {
         if(next!=null) {
             next.active=!waiting&&!branch();
-            next.setMessage(Component.literal(branch()?"请选择":visibleCount()<line().text().length()?"显示全文":last()?"本章结束":"继续"));
+            next.setMessage(Component.literal(branch()?"请选择":visibleCount()<lineText().length()?"显示全文":last()?"本章结束":"继续"));
         }
         for(var button:choiceButtons)button.active=!waiting;
     }
@@ -208,7 +228,7 @@ public final class LonyaScreen extends Screen {
         updateReadingButtons();
         if(branch()||waiting)return;
         if((fastForward||hasControlDown())&&ticks%4==0) {fullText=true;request(LonyaStoryService.NEXT,0);}
-        else if(automatic&&visibleCount()>=line().text().length()&&revealTicks*50L>=Math.max(1800,line().minimumMillis()))advance();
+        else if(automatic&&visibleCount()>=lineText().length()&&revealTicks*50L>=Math.max(1800,line().minimumMillis()))advance();
     }
     private static ResourceLocation texture(String name) {return ResourceLocation.fromNamespaceAndPath(DollMod.MODID,"textures/story/"+name+".png");}
     private void image(GuiGraphics g,String name,int px,int py,int width,int height,int sw,int sh) {
@@ -260,23 +280,24 @@ public final class LonyaScreen extends Screen {
         g.fillGradient(margin,dy,width-margin,height-s(10),0xC5202231,0xEF171A28);
         g.fill(margin,dy,width-margin,dy+1,0xD7DBB5A8);g.fill(margin,dy,margin+s(3),height-s(10),0xFFD3AC9E);
         text(g,line().speaker(),margin+s(13),dy+s(10),0xFFF3C6BA);
-        String counter=(number("line")+1)+" / "+LonyaScript.chapter(number("chapter")).lines().size();
-        text(g,counter,width-margin-s(14)-s(font.width(counter)),dy+s(11),0xFFBDB4B4);
-        wrapped(g,line().text().substring(0,visibleCount()),margin+s(13),dy+s(27),width-2*margin-s(26),0xFFFFF5EC,dialogueH-s(56),s(width<s(480)?10:12));
+        wrapped(g,lineText().substring(0,visibleCount()),margin+s(13),dy+s(27),width-2*margin-s(26),0xFFFFF5EC,dialogueH-s(56),s(width<s(480)?10:12));
         g.fill(margin+s(10),height-s(40),width-margin-s(10),height-s(40)+1,0x506E6878);
-        if(branch())text(g,"Lonya 等着你的回答",Math.max(s(16),(width-s(font.width("Lonya 等着你的回答")))/2),dialogueY-s(78),0xFFFFEFE2);
+        if(branch())text(g,"Lonya 等着你的回答",Math.max(s(16),(width-s(font.width("Lonya 等着你的回答")))/2),choiceTop-s(16),0xFFFFEFE2);
     }
     private void renderHub(GuiGraphics g) {
         g.fill(0,0,width,height,0x38000000);panel(g,x,y,w,h);
-        text(g,"lonya plush",x+s(12),y+s(12),INK);
+        text(g,tr("title"),x+s(12),y+s(13),INK);
         int artW=Math.min(s(126),w/3),ax=x+s(10),ay=y+s(35),ah=h-s(47);inset(g,ax,ay,artW,ah);
         int ph=ah-s(4),pw=ph*2/3;g.enableScissor(ax+1,ay+1,ax+artW-1,ay+ah-1);
-        image(g,"hello",ax+(artW-pw)/2,ay+s(4),pw,ph,1024,1536);g.disableScissor();
+        String expression=state.has("casual_expression")?state.get("casual_expression").getAsString():"hello";
+        image(g,LonyaScript.EXPRESSIONS.contains(expression)?expression:"hello",ax+(artW-pw)/2,ay+s(4),pw,ph,1024,1536);g.disableScissor();
+        String affection=tr("affection",affection());int aw=s(font.width(affection)),badgeX=ax+artW-aw-s(5);
+        g.fill(badgeX-s(3),ay+s(3),ax+artW-s(2),ay+s(16),0xDDF2F2F2);
+        text(g,affection,badgeX,ay+s(5),BLUE);
         int tx=x+artW+s(24),tw=w-artW-s(36);
         text(g,"晴色日常",tx,y+s(41),BLUE);g.fill(tx,y+s(58),x+w-s(12),y+s(58)+1,SHADOW);
-        String intro=message.isBlank()?"“回来啦。先坐一会儿？”\n\n继续上次的话题，或翻翻以前的章节。":message;
-        wrapped(g,intro,tx,y+s(68),tw,INK,Math.max(s(25),h-s(167)));
-        if(h>=s(245))text(g,cooldownMillis()>0?"下次聊天："+LonyaStoryConfig.countdown(cooldownMillis()):"进度已保存 · 随时可以离开",tx,y+h-s(111),MUTED);
+        String intro=message.isBlank()?tr("greeting"):message;
+        wrapped(g,intro,tx,y+s(68),tw,INK,Math.max(s(25),h-s(146)));
     }
     private List<HistoryRow> historyRows() {
         var rows=new ArrayList<HistoryRow>();int previous=-1,wrapWidth=Math.max(20,(int)((w-s(54))/unit));
@@ -315,7 +336,7 @@ public final class LonyaScreen extends Screen {
             g.fillGradient(0,height-s(90),width,height,0x00161824,0xE5171A28);
             wrapped(g,LonyaScript.chapter(galleryChapter).summary(),s(20),height-s(55),width-s(40),0xFFFFF2E8,s(45));return;
         }
-        g.fill(0,0,width,height,0x60000000);panel(g,x,y,w,h);text(g,"历史章节 / 章节回顾",x+s(14),y+s(12),INK);
+        g.fill(0,0,width,height,0x60000000);panel(g,x,y,w,h);text(g,tr("history"),x+s(14),y+s(12),INK);
         if(w>=s(530)) {
             int rx=x+(w-s(40))/2+s(28),rw=w-(rx-x)-s(14),ph=(h-s(110))*48/100;inset(g,rx,y+s(43),rw,ph);
             if(completed(galleryChapter))cover(g,galleryChapter,rx+1,y+s(43)+1,rw-2,ph-2);
@@ -326,7 +347,7 @@ public final class LonyaScreen extends Screen {
             wrapped(g,completed(galleryChapter)?LonyaScript.chapter(galleryChapter).summary():"选择章节后可以从头重玩；读完后可查看 CG 和回顾。",rx,ty,rw,INK,h-(ty-y)-s(68));
             text(g,completed(galleryChapter)?"本章已读完":"本章尚未读完",rx,y+h-s(62),BLUE);
             text(g,"重玩会替换当前阅读位置，保留章节解锁。",x+s(14),y+h-s(53),MUTED);
-        } else text(g,"重玩替换阅读位置；章节解锁保留。",x+s(14),y+h-s(52),MUTED);
+        } else wrapped(g,"重玩替换阅读位置；章节解锁保留。",x+s(14),y+h-s(54),w-s(28),MUTED,s(21),s(10));
     }
     @Override public void renderBackground(GuiGraphics g,int mx,int my,float partial) { }
     @Override public void render(GuiGraphics g,int mx,int my,float partial) {
@@ -409,7 +430,8 @@ public final class LonyaScreen extends Screen {
             text(g,label,tx,by+(bh-s(8))/2,ae?active?(chosen?LIGHT:INK):0xFF858A9F:active?0xFFF7E4D9:0xFF838796);
             if(chapterCard) {
                 int i=Integer.parseInt(getMessage().getString().substring(0,2))-1;
-                text(g,unlocked(i)?completed(i)?"已读":"可读":"锁定",bx+bw-s(29),by+(bh-s(8))/2,chosen?LIGHT:MUTED);
+                String status=reviewable(i)?completed(i)?"已读":"可读":"锁定";
+                text(g,status,bx+bw-s(29),by+(bh-s(8))/2,chosen?LIGHT:MUTED);
             }
         }
     }
